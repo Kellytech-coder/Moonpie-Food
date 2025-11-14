@@ -7,82 +7,121 @@
 </head>
 <body style="margin:0; font-family:Arial, sans-serif; background:#f4f4f4;">
 
-<header style="width:100%; background:#fff; box-shadow:0 2px 4px rgba(0,0,0,0.1); position:sticky; top:0; z-index:100;">
-    
-    <!-- NAVBAR -->
+<header style="width:100%; background:#fff; box-shadow:0 2px 4px rgba(0,0,0,0.1); position:fixed; top:0; z-index:100;">
+
+    <!-- RESPONSIVE NAVBAR -->
     <nav style="
         display:flex; 
         justify-content:space-between; 
         align-items:center; 
         padding:15px 10px; 
         flex-wrap:wrap;
+        position:relative;
     ">
         <h1 style="margin:0; font-size:22px; color:#333;">MoonpieFood</h1>
 
-        <ul style="
+        <!-- Hamburger Menu Icon (hidden on desktop) -->
+        <button id="menuToggle" style="
+            font-size:22px; 
+            background:none; 
+            border:none; 
+            cursor:pointer; 
+            display:none;
+        ">☰</button>
+
+        <ul id="navLinks" style="
             list-style:none; 
             display:flex; 
             gap:15px; 
             margin:10px 0 0 0; 
             padding:0; 
             flex-wrap:wrap;
-            justify-content:center;
+            justify-content:flex-end;
             width:100%;
         ">
             <li><a href="index.html" style="text-decoration:none; color:#333; font-size:15px; font-weight:bold;">Home</a></li>
             <li><a href="restuarants.html" style="text-decoration:none; color:#333; font-size:15px; font-weight:bold;">Restaurants</a></li>
             <li><a href="cart.html" style="text-decoration:none; color:#333; font-size:15px; font-weight:bold;">Cart (<span id="cart-count">0</span>)</a></li>
             <li><a href="login.html" style="text-decoration:none; color:#333; font-size:15px; font-weight:bold;">Login</a></li>
-            <li><button id="darkToggle" style="padding:6px 10px; font-size:16px; cursor:pointer;">🌙</button></li>
+
+            <!-- SETTINGS DROPDOWN -->
+            <li style="position:relative;">
+                <button style="padding:6px 10px; font-size:16px; cursor:pointer;">⚙️ Settings</button>
+                <div style="
+                    position:absolute;
+                    top:40px;
+                    right:0;
+                    background:white;
+                    border:1px solid #ccc;
+                    border-radius:5px;
+                    padding:10px;
+                    width:120px;
+                    display:none;
+                " id="settingsMenu">
+                    <button id="darkToggle" style="padding:6px; font-size:16px; cursor:pointer; width:100%;">🌙 Dark Mode</button>
+                </div>
+            </li>
         </ul>
     </nav>
 
-    <!-- HERO SECTION -->
-    <div style="text-align:center; padding:40px 15px; background:#ffcc00;">
-        <h2 style="font-size:28px; margin-bottom:10px;">Delicious Meals Delivered Fast</h2>
-        <p style="font-size:16px; margin-bottom:20px;">Real food, real taste, real quick.</p>
-
-        <div style="display:flex; justify-content:center; flex-wrap:wrap; gap:10px;">
-            <input 
-                type="text" 
-                id="searchBar" 
-                placeholder="Search for food..."
-                style="
-                    padding:12px; 
-                    width:80%; 
-                    max-width:250px; 
-                    border:1px solid #ccc; 
-                    border-radius:4px;
-                "
-            >
-            
-            <button id="searchBtn" 
-                style="
-                    padding:12px 20px; 
-                    background:#333; 
-                    color:#fff; 
-                    border:none; 
-                    border-radius:4px; 
-                    cursor:pointer;
-                ">
-                Search
-            </button>
-        </div>
-    </div>
-
 </header>
+
+<!-- HERO SECTION -->
+<div style="
+    text-align:center; 
+    padding:40px 15px; 
+    background:#ffcc00;
+    margin-top:130px;
+">
+    <h2 style="font-size:28px; margin-bottom:10px;">Delicious Meals Delivered Fast</h2>
+    <p style="font-size:16px; margin-bottom:20px;">Real food, real taste, real quick.</p>
+
+    <!-- RESPONSIVE SEARCH BAR -->
+    <div style="
+        display:flex; 
+        justify-content:center; 
+        flex-wrap:wrap; 
+        gap:10px;
+        width:100%;
+    ">
+        <input 
+            type="text" 
+            id="searchBar" 
+            placeholder="Search for food..."
+            style="
+                padding:12px; 
+                width:80%; 
+                max-width:400px; 
+                min-width:200px;
+                border:1px solid #ccc; 
+                border-radius:4px;
+                font-size:16px;
+            "
+        >
+        <button id="searchBtn" 
+            style="
+                padding:12px 20px; 
+                background:#333; 
+                color:#fff; 
+                border:none; 
+                border-radius:4px; 
+                cursor:pointer;
+                font-size:16px;
+            ">
+            Search
+        </button>
+    </div>
+</div>
 
 <!-- FOOD MENU -->
 <section style="padding:30px 10px;">
     <h2 style="text-align:center; font-size:24px; margin-bottom:25px;">Popular Dishes</h2>
-
     <div style="
         display:flex; 
         justify-content:center; 
         gap:20px; 
         flex-wrap:wrap;
     ">
-
         <!-- ITEM CARD TEMPLATE -->
         <div style="
             background:#fff; 
@@ -176,6 +215,42 @@
 
     </div>
 </section>
+
+<!-- SCRIPTS -->
+<script>
+// Settings dropdown toggle
+const settingsButton = document.querySelector("li button");
+const settingsMenu = document.getElementById("settingsMenu");
+
+settingsButton.addEventListener("click", () => {
+    settingsMenu.style.display = settingsMenu.style.display === "block" ? "none" : "block";
+});
+
+// Hamburger menu toggle
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", () => {
+    navLinks.style.display = navLinks.style.display === "flex" ? "none" : "flex";
+});
+
+// Show/hide hamburger on small screens
+function checkScreen() {
+    if(window.innerWidth <= 768){
+        menuToggle.style.display = "block";
+        navLinks.style.display = "none";
+        navLinks.style.flexDirection = "column";
+        navLinks.style.width = "100%";
+    } else {
+        menuToggle.style.display = "none";
+        navLinks.style.display = "flex";
+        navLinks.style.flexDirection = "row";
+        navLinks.style.width = "100%";
+    }
+}
+window.addEventListener("resize", checkScreen);
+checkScreen();
+</script>
 
 <script src="script.js"></script>
 </body>

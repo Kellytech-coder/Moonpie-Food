@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>My Favorites - Food Delivery App</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#FF6B6B",
+                        "background-light": "#F8F9FA",
+                        "background-dark": "#212529",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col">
+<!-- Top App Bar -->
+<header class="flex items-center bg-background-light dark:bg-background-dark p-4 sticky top-0 z-10 border-b border-gray-200 dark:border-gray-700">
+<div class="flex size-12 shrink-0 items-center justify-start">
+<span class="material-symbols-outlined text-gray-800 dark:text-gray-200 text-3xl">arrow_back</span>
+</div>
+<h1 class="text-gray-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">My Favorites</h1>
+<div class="flex w-12 items-center justify-end">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 bg-transparent text-primary gap-2 text-base font-bold leading-normal tracking-[0.015em] min-w-0 p-0">
+<span class="material-symbols-outlined text-3xl">favorite</span>
+</button>
+</div>
+</header>
+<main class="flex flex-col flex-1">
+<!-- Tabs -->
+<div>
+<div class="flex border-b border-gray-200 dark:border-gray-700 px-4">
+<a class="flex flex-col items-center justify-center border-b-[3px] border-b-primary pb-[13px] pt-4 flex-1" href="#">
+<p class="text-primary text-sm font-bold leading-normal tracking-[0.015em]">Restaurants</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent pb-[13px] pt-4 flex-1" href="#">
+<p class="text-gray-500 dark:text-gray-400 text-sm font-bold leading-normal tracking-[0.015em]">Dishes</p>
+</a>
+</div>
+</div>
+<!-- Search Bar & Filters -->
+<div class="p-4 flex flex-col gap-4">
+<label class="flex flex-col min-w-40 h-12 w-full">
+<div class="flex w-full flex-1 items-stretch rounded-full h-full">
+<div class="text-gray-500 dark:text-gray-400 flex border-none bg-gray-100 dark:bg-gray-800 items-center justify-center pl-4 rounded-l-full border-r-0">
+<span class="material-symbols-outlined text-2xl font-normal">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-full text-gray-800 dark:text-gray-200 focus:outline-0 focus:ring-0 border-none bg-gray-100 dark:bg-gray-800 focus:border-none h-full placeholder:text-gray-500 dark:placeholder:text-gray-400 px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal" placeholder="Search in favorites" value=""/>
+</div>
+</label>
+<div class="flex gap-3 overflow-x-auto pb-2">
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-gray-100 dark:bg-gray-800 px-4">
+<span class="material-symbols-outlined text-gray-600 dark:text-gray-300 text-xl font-normal">tune</span>
+<p class="text-gray-800 dark:text-gray-200 text-sm font-medium leading-normal">Sort by</p>
+<span class="material-symbols-outlined text-gray-600 dark:text-gray-300 text-xl font-normal">expand_more</span>
+</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-gray-100 dark:bg-gray-800 px-4">
+<p class="text-gray-800 dark:text-gray-200 text-sm font-medium leading-normal">Cuisine</p>
+<span class="material-symbols-outlined text-gray-600 dark:text-gray-300 text-xl font-normal">expand_more</span>
+</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-gray-100 dark:bg-gray-800 px-4">
+<p class="text-gray-800 dark:text-gray-200 text-sm font-medium leading-normal">Price</p>
+<span class="material-symbols-outlined text-gray-600 dark:text-gray-300 text-xl font-normal">expand_more</span>
+</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-gray-100 dark:bg-gray-800 px-4">
+<p class="text-gray-800 dark:text-gray-200 text-sm font-medium leading-normal">Rating</p>
+<span class="material-symbols-outlined text-gray-600 dark:text-gray-300 text-xl font-normal">expand_more</span>
+</button>
+</div>
+</div>
+<!-- Favorite Items List -->
+<div class="flex flex-col gap-4 px-4 pb-28">
+<!-- Restaurant Card 1 -->
+<div class="flex flex-col gap-3 rounded-lg bg-white dark:bg-gray-800 p-3 shadow-sm">
+<div class="relative w-full aspect-[16/9] bg-cover bg-center rounded-lg" data-alt="A delicious-looking gourmet burger with fries on a plate" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCZ-O7qNVjlGpTjja4eWXJn0CxrdvmgSNESZe032Fv2oVknyfODwaPKau4cZ5P1UY6EI1prco0UtqeO7GxeVFBT6oY5YMuAdLT0Wfk0YnT3-TqmShvks6tsgDgEFshQspF8IVGdnY-6Gv83mZMY6NM0I6ke5jWTEVqyOIBkuzny2mMwlyaqNhKu1Im8-gBfEYsgyV6oRVwJT0IrhhXl76FrooTHQM3BN0djtyMTJZ_nWD-eeAw6mMpkPPiv5CLSuY_wAai6ZVeQjsR3");'>
+<button class="absolute top-3 right-3 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-black/40 text-primary">
+<span class="material-symbols-outlined text-xl">favorite</span>
+</button>
+</div>
+<div class="flex items-start justify-between gap-4">
+<div class="flex flex-col gap-1">
+<p class="text-gray-900 dark:text-white text-base font-bold leading-tight">Gourmet Burger Kitchen</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">Italian • 25-35 min • ★ 4.7</p>
+</div>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-primary text-white text-sm font-bold leading-normal">
+<span class="truncate">Reorder</span>
+</button>
+</div>
+</div>
+<!-- Restaurant Card 2 -->
+<div class="flex flex-col gap-3 rounded-lg bg-white dark:bg-gray-800 p-3 shadow-sm">
+<div class="relative w-full aspect-[16/9] bg-cover bg-center rounded-lg" data-alt="An overhead shot of a freshly baked pizza with various toppings" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCSX4TAu8hASWFs1-rxLxg-Y00YOZXyfqyvjxGf1_FFVGLQncwa51Neo1hAX41pepzp6y5ZULblaz8QGEmYXcYLSoHMq1SCo80d0OgKS37ocums-43dluoKQaBY-zW4JbLoU-3dDDnjNGB0rlVAl4ftwIElG4SpB2qnBBNuNwWDXlaMBB141O7_7QiYHsqHmqLf7vrR_Xi2ElBSBR8EyPnl8jpCZVJf8BAz3pUkyjwp8wqUuFJP1W561z5gdgoxGkVPbwpWRSIJSbv2");'>
+<button class="absolute top-3 right-3 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-black/40 text-primary">
+<span class="material-symbols-outlined text-xl">favorite</span>
+</button>
+</div>
+<div class="flex items-start justify-between gap-4">
+<div class="flex flex-col gap-1">
+<p class="text-gray-900 dark:text-white text-base font-bold leading-tight">Napoli Pizza Place</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">Pizza • 20-30 min • ★ 4.9</p>
+</div>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-primary text-white text-sm font-bold leading-normal">
+<span class="truncate">Reorder</span>
+</button>
+</div>
+</div>
+<!-- Restaurant Card 3 -->
+<div class="flex flex-col gap-3 rounded-lg bg-white dark:bg-gray-800 p-3 shadow-sm">
+<div class="relative w-full aspect-[16/9] bg-cover bg-center rounded-lg" data-alt="A vibrant bowl of fresh sushi rolls and sashimi" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAf6W6J38KJCMYnwqynTFAgBhDVT8BZqd6imkxk3fTI_qztN3oasPy6iAAy2kxRvQajIENybvx6YMLOyeNGGviN3QE__p5nf9BRtrE7bruUcWBOMNJ3V-YdM_4O6iK7vJPXo1Nj9EDNDeY_uc8Y7caIiArJ7PcHYN114TmtuxGG_At1auvmagR_6XW6Iv2kKB59HgTCQJKHS_fJPpBeSYX31DUWqiomkrnyI-WvjlFbUb7w6tBOGHVoiFBIAldroNj2EWRG4Rsb_gc7");'>
+<button class="absolute top-3 right-3 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-black/40 text-primary">
+<span class="material-symbols-outlined text-xl">favorite</span>
+</button>
+</div>
+<div class="flex items-start justify-between gap-4">
+<div class="flex flex-col gap-1">
+<p class="text-gray-900 dark:text-white text-base font-bold leading-tight">Sushi Express</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">Japanese • 35-45 min • ★ 4.6</p>
+</div>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-primary text-white text-sm font-bold leading-normal">
+<span class="truncate">Reorder</span>
+</button>
+</div>
+</div>
+<!-- Empty State Example -->
+<div class="flex flex-col items-center justify-center text-center gap-4 py-16 px-8 rounded-lg bg-gray-50 dark:bg-gray-800/50">
+<div class="flex items-center justify-center h-20 w-20 rounded-full bg-primary/20 text-primary">
+<span class="material-symbols-outlined !text-5xl !font-light" style="font-variation-settings: 'FILL' 0;">sentiment_dissatisfied</span>
+</div>
+<div class="flex flex-col gap-2">
+<h3 class="text-xl font-bold text-gray-900 dark:text-white">Find Your Favorites</h3>
+<p class="text-gray-500 dark:text-gray-400">Nothing here yet! Tap the heart on any restaurant or dish to add it to your favorites.</p>
+</div>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-6 bg-primary text-white text-base font-bold leading-normal mt-4">
+<span class="truncate">Browse Restaurants</span>
+</button>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 right-0 h-20 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 flex justify-around items-center px-4">
+<a class="flex flex-col items-center gap-1 text-gray-500 dark:text-gray-400" href="#">
+<span class="material-symbols-outlined !font-light">home</span>
+<span class="text-xs">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-gray-500 dark:text-gray-400" href="#">
+<span class="material-symbols-outlined !font-light">search</span>
+<span class="text-xs">Search</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined">favorite</span>
+<span class="text-xs font-bold">Favorites</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-gray-500 dark:text-gray-400" href="#">
+<span class="material-symbols-outlined !font-light">receipt_long</span>
+<span class="text-xs">Orders</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-gray-500 dark:text-gray-400" href="#">
+<span class="material-symbols-outlined !font-light">person</span>
+<span class="text-xs">Profile</span>
+</a>
+</nav>
+</div>
+</body></html>

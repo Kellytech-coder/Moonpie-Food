@@ -3,41 +3,36 @@
 <html class="dark" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Account Settings</title>
+<title>Profile Page - Food Delivery App</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
 <style>
-        .material-symbols-outlined {
-            font-variation-settings:
-                'FILL' 0,
-                'wght' 400,
-                'GRAD' 0,
-                'opsz' 24
-        }
+      .material-symbols-outlined {
+        font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+      }
     </style>
 <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#ee9d2b",
-                        "background-light": "#f8f7f6",
-                        "background-dark": "#221a10",
-                    },
-                    fontFamily: {
-                        "display": ["Plus Jakarta Sans", "Noto Sans", "sans-serif"]
-                    },
-                    borderRadius: {
-                        "DEFAULT": "1rem",
-                        "lg": "2rem",
-                        "xl": "3rem",
-                        "full": "9999px"
-                    },
-                },
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#ee9d2b",
+              "background-light": "#f8f7f6",
+              "background-dark": "#221a10",
             },
-        }
+            fontFamily: {
+              "display": ["Plus Jakarta Sans", "Noto Sans", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
     </script>
 <style>
     body {
@@ -45,83 +40,134 @@
     }
   </style>
   </head>
-<body class="bg-background-light dark:bg-background-dark font-display">
-<div class="relative flex h-auto min-h-screen w-full flex-col">
+<body class="bg-background-light dark:bg-background-dark">
+<div class="relative flex h-auto min-h-screen w-full flex-col font-display group/design-root overflow-x-hidden">
 <!-- Top App Bar -->
-<div class="flex items-center p-4">
-<div class="flex size-12 shrink-0 items-center justify-start text-stone-900 dark:text-white">
-<span class="material-symbols-outlined text-2xl">arrow_back</span>
+<div class="flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between sticky top-0 z-10">
+<div class="flex size-12 shrink-0 items-center justify-center">
+<span class="material-symbols-outlined text-zinc-900 dark:text-zinc-100 text-2xl">arrow_back</span>
 </div>
-<h1 class="flex-1 text-center text-lg font-bold text-stone-900 dark:text-white">My Account</h1>
-<div class="w-12"></div> <!-- Spacer for centering title -->
+<h2 class="text-zinc-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Profile</h2>
+<div class="flex size-12 shrink-0 items-center"></div>
 </div>
-<div class="flex flex-col p-4">
+<div class="p-4 flex flex-col gap-8">
 <!-- Profile Header -->
-<div class="flex w-full flex-col gap-4 rounded-lg bg-white/5 p-4 @container dark:bg-black/20 md:flex-row md:items-center md:justify-between">
-<div class="flex flex-1 items-center gap-4">
-<div class="aspect-square w-20 min-w-20 rounded-full bg-cover bg-center bg-no-repeat" data-alt="A portrait of Alex Doe, smiling." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBwCS-GDd0ElxT9a3uNQfQgwnujmxMOS-NN_ZpXArlFKzZ9YLfTWpDFa5MtX8XV6zy7_pJjeMvjC12EJFmA0f2GWqyDSbmYMJMGhf0B-TRQUn17AqH7_-4Hq5n2cgEuRPshvM0GeLdA53DePRbcP8aDtLcWlNCTqeEy7Sm5Fi86aJzxfuQaUTILbUqS22TzgGM2wZyNlKZZ2PA1O3dRYD3W1viOzXgwqLrVNmkKy39cm7hb48W2OKgRYBJE_rPUIW9q_Kzxh1SF3s8S");'></div>
-<div class="flex flex-col justify-center">
-<p class="text-[22px] font-bold leading-tight tracking-[-0.015em] text-stone-900 dark:text-white">Alex Doe</p>
-<p class="text-base font-normal leading-normal text-stone-500 dark:text-stone-400">alex.doe@email.com</p>
-</div>
-</div>
-<button class="flex h-12 min-w-[84px] cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-full bg-primary px-5 text-sm font-bold leading-normal tracking-[0.015em] text-white transition-opacity hover:opacity-90 md:w-auto">
+<div class="flex w-full flex-col gap-4 items-center">
+<div class="relative">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full min-h-32 w-32 border-4 border-white dark:border-zinc-800" data-alt="User avatar placeholder" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCJil1ay0nsZyabQQxXsXYXqOf5xTGALB1_kuZmh0ohY46EOy1Y3N6nEgu11FMTahqWont2IDF0UcsipjpyTo-4HASqkGMR5yXEon65mMr-Y1KI6qwvnKeY71lNmIV94B2TAIqLW6AOPLQa6Pqt75f9LX39egpOfsrtJKl0UxK63TKs5DzOqU9AKN91c0ebu4FfGquwu0dFvl2eLBWWi8NyWA651UAr4uv-yjHVqitCT1A5EZjXRpuRp9awgKa4FuDtfojZWQLTauSn");'></div>
+<button class="absolute bottom-0 right-0 flex items-center justify-center size-9 bg-primary text-zinc-900 rounded-full border-2 border-background-light dark:border-background-dark">
 <span class="material-symbols-outlined text-xl">edit</span>
-<span class="truncate">Edit Profile</span>
 </button>
 </div>
-<!-- Spacer -->
-<div class="h-8"></div>
-<!-- Navigation List -->
+<div class="flex flex-col items-center justify-center">
+<p class="text-zinc-900 dark:text-white text-[22px] font-bold leading-tight tracking-[-0.015em] text-center">Alex Doe</p>
+<p class="text-zinc-500 dark:text-zinc-400 text-base font-normal leading-normal text-center">alex.doe@email.com</p>
+</div>
+</div>
+<!-- List Section -->
 <div class="flex flex-col gap-2">
-<!-- List Item: My Orders -->
-<div class="flex cursor-pointer items-center gap-4 rounded-lg bg-white/5 p-4 transition-colors hover:bg-black/5 dark:bg-black/20 dark:hover:bg-black/30">
-<div class="flex size-11 shrink-0 items-center justify-center rounded-full bg-primary/20 text-primary">
-<span class="material-symbols-outlined text-2xl">receipt_long</span>
+<!-- Account Management -->
+<div class="flex items-center gap-4 px-4 min-h-14 justify-between">
+<p class="text-zinc-500 dark:text-zinc-400 text-sm font-bold uppercase tracking-wider">Account</p>
 </div>
-<p class="flex-1 truncate text-base font-medium leading-normal text-stone-900 dark:text-white">My Orders</p>
-<div class="shrink-0 text-stone-500 dark:text-stone-400">
-<span class="material-symbols-outlined text-2xl">chevron_right</span>
+<div class="flex flex-col bg-zinc-100/50 dark:bg-black/20 rounded-lg overflow-hidden">
+<div class="flex items-center gap-4 p-4 min-h-14 justify-between cursor-pointer hover:bg-zinc-200/50 dark:hover:bg-black/20">
+<div class="flex items-center gap-4">
+<div class="text-zinc-900 dark:text-white flex items-center justify-center rounded-lg bg-primary/20 shrink-0 size-10">
+<span class="material-symbols-outlined text-primary">person</span>
 </div>
+<p class="text-zinc-900 dark:text-white text-base font-medium leading-normal flex-1 truncate">Personal Details</p>
 </div>
-<!-- List Item: Delivery Addresses -->
-<div class="flex cursor-pointer items-center gap-4 rounded-lg bg-white/5 p-4 transition-colors hover:bg-black/5 dark:bg-black/20 dark:hover:bg-black/30">
-<div class="flex size-11 shrink-0 items-center justify-center rounded-full bg-primary/20 text-primary">
-<span class="material-symbols-outlined text-2xl">location_on</span>
-</div>
-<p class="flex-1 truncate text-base font-medium leading-normal text-stone-900 dark:text-white">Delivery Addresses</p>
-<div class="shrink-0 text-stone-500 dark:text-stone-400">
-<span class="material-symbols-outlined text-2xl">chevron_right</span>
-</div>
-</div>
-<!-- List Item: Payment Methods -->
-<div class="flex cursor-pointer items-center gap-4 rounded-lg bg-white/5 p-4 transition-colors hover:bg-black/5 dark:bg-black/20 dark:hover:bg-black/30">
-<div class="flex size-11 shrink-0 items-center justify-center rounded-full bg-primary/20 text-primary">
-<span class="material-symbols-outlined text-2xl">credit_card</span>
-</div>
-<p class="flex-1 truncate text-base font-medium leading-normal text-stone-900 dark:text-white">Payment Methods</p>
-<div class="shrink-0 text-stone-500 dark:text-stone-400">
-<span class="material-symbols-outlined text-2xl">chevron_right</span>
-</div>
-</div>
-<!-- List Item: Help & Support -->
-<div class="flex cursor-pointer items-center gap-4 rounded-lg bg-white/5 p-4 transition-colors hover:bg-black/5 dark:bg-black/20 dark:hover:bg-black/30">
-<div class="flex size-11 shrink-0 items-center justify-center rounded-full bg-primary/20 text-primary">
-<span class="material-symbols-outlined text-2xl">help_outline</span>
-</div>
-<p class="flex-1 truncate text-base font-medium leading-normal text-stone-900 dark:text-white">Help &amp; Support</p>
-<div class="shrink-0 text-stone-500 dark:text-stone-400">
-<span class="material-symbols-outlined text-2xl">chevron_right</span>
+<div class="shrink-0">
+<div class="text-zinc-500 dark:text-zinc-400 flex size-7 items-center justify-center">
+<span class="material-symbols-outlined">chevron_right</span>
 </div>
 </div>
 </div>
-<!-- Spacer -->
-<div class="h-8"></div>
-<!-- Logout Button -->
-<button class="flex h-14 w-full cursor-pointer items-center justify-center gap-3 overflow-hidden rounded-lg bg-white/5 px-6 text-base font-bold leading-normal text-red-600/90 transition-colors hover:bg-red-500/10 dark:bg-black/20 dark:text-red-500 dark:hover:bg-red-500/10">
-<span class="material-symbols-outlined text-2xl">logout</span>
-<span class="truncate">Logout</span>
+<div class="h-px bg-zinc-200 dark:bg-zinc-800 mx-4"></div>
+<div class="flex items-center gap-4 p-4 min-h-14 justify-between cursor-pointer hover:bg-zinc-200/50 dark:hover:bg-black/20">
+<div class="flex items-center gap-4">
+<div class="text-zinc-900 dark:text-white flex items-center justify-center rounded-lg bg-primary/20 shrink-0 size-10">
+<span class="material-symbols-outlined text-primary">location_on</span>
+</div>
+<p class="text-zinc-900 dark:text-white text-base font-medium leading-normal flex-1 truncate">My Addresses</p>
+</div>
+<div class="shrink-0">
+<div class="text-zinc-500 dark:text-zinc-400 flex size-7 items-center justify-center">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+</div>
+<div class="h-px bg-zinc-200 dark:bg-zinc-800 mx-4"></div>
+<div class="flex items-center gap-4 p-4 min-h-14 justify-between cursor-pointer hover:bg-zinc-200/50 dark:hover:bg-black/20">
+<div class="flex items-center gap-4">
+<div class="text-zinc-900 dark:text-white flex items-center justify-center rounded-lg bg-primary/20 shrink-0 size-10">
+<span class="material-symbols-outlined text-primary">credit_card</span>
+</div>
+<p class="text-zinc-900 dark:text-white text-base font-medium leading-normal flex-1 truncate">Payment Methods</p>
+</div>
+<div class="shrink-0">
+<div class="text-zinc-500 dark:text-zinc-400 flex size-7 items-center justify-center">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+</div>
+<div class="h-px bg-zinc-200 dark:bg-zinc-800 mx-4"></div>
+<div class="flex items-center gap-4 p-4 min-h-14 justify-between cursor-pointer hover:bg-zinc-200/50 dark:hover:bg-black/20">
+<div class="flex items-center gap-4">
+<div class="text-zinc-900 dark:text-white flex items-center justify-center rounded-lg bg-primary/20 shrink-0 size-10">
+<span class="material-symbols-outlined text-primary">receipt_long</span>
+</div>
+<p class="text-zinc-900 dark:text-white text-base font-medium leading-normal flex-1 truncate">Order History</p>
+</div>
+<div class="shrink-0">
+<div class="text-zinc-500 dark:text-zinc-400 flex size-7 items-center justify-center">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Settings & Support -->
+<div class="flex items-center gap-4 px-4 min-h-14 justify-between mt-4">
+<p class="text-zinc-500 dark:text-zinc-400 text-sm font-bold uppercase tracking-wider">Support</p>
+</div>
+<div class="flex flex-col bg-zinc-100/50 dark:bg-black/20 rounded-lg overflow-hidden">
+<div class="flex items-center gap-4 p-4 min-h-14 justify-between cursor-pointer hover:bg-zinc-200/50 dark:hover:bg-black/20">
+<div class="flex items-center gap-4">
+<div class="text-zinc-900 dark:text-white flex items-center justify-center rounded-lg bg-primary/20 shrink-0 size-10">
+<span class="material-symbols-outlined text-primary">settings</span>
+</div>
+<p class="text-zinc-900 dark:text-white text-base font-medium leading-normal flex-1 truncate">Settings</p>
+</div>
+<div class="shrink-0">
+<div class="text-zinc-500 dark:text-zinc-400 flex size-7 items-center justify-center">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+</div>
+<div class="h-px bg-zinc-200 dark:bg-zinc-800 mx-4"></div>
+<div class="flex items-center gap-4 p-4 min-h-14 justify-between cursor-pointer hover:bg-zinc-200/50 dark:hover:bg-black/20">
+<div class="flex items-center gap-4">
+<div class="text-zinc-900 dark:text-white flex items-center justify-center rounded-lg bg-primary/20 shrink-0 size-10">
+<span class="material-symbols-outlined text-primary">help</span>
+</div>
+<p class="text-zinc-900 dark:text-white text-base font-medium leading-normal flex-1 truncate">Help Center</p>
+</div>
+<div class="shrink-0">
+<div class="text-zinc-500 dark:text-zinc-400 flex size-7 items-center justify-center">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Log Out Button -->
+<div class="mt-4">
+<button class="flex w-full cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-full h-12 px-5 bg-red-500/10 dark:bg-red-500/20 text-red-500 text-base font-bold leading-normal tracking-[0.015em]">
+<span class="material-symbols-outlined">logout</span>
+<span class="truncate">Log Out</span>
 </button>
+</div>
 </div>
 </div>
 </body></html>

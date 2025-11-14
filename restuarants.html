@@ -1,105 +1,184 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restaurants - MoonpieFood</title>
-</head>
-<body style="margin:0; font-family:Arial, sans-serif; background:#f4f4f4;">
 
-<!-- NAVBAR -->
-<nav style="
-    width:100%;
-    background:#fff;
-    box-shadow:0 2px 4px rgba(0,0,0,0.1);
-    padding:15px 10px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    flex-wrap:wrap;
-">
-    <h1 style="margin:0; font-size:24px; color:#333;">MoonpieFood</h1>
-
-    <ul style="
-        list-style:none;
-        display:flex;
-        gap:15px;
-        margin:10px 0 0 0;
-        padding:0;
-        flex-wrap:wrap;
-        justify-content:center;
-        width:100%;
-    ">
-        <li><a href="index.html" style="text-decoration:none; color:#333; font-weight:bold; font-size:15px;">Home</a></li>
-        <li><a href="restaurants.html" style="text-decoration:none; color:#333; font-weight:bold; font-size:15px;">Restaurants</a></li>
-        <li><a href="login.html" style="text-decoration:none; color:#333; font-weight:bold; font-size:15px;">Login</a></li>
-        <li><a href="order.html" style="text-decoration:none; color:#333; font-weight:bold; font-size:15px;">Order</a></li>
-    </ul>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Restaurant Menu</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#ee9d2b",
+              "background-light": "#f8f7f6",
+              "background-dark": "#221a10",
+            },
+            fontFamily: {
+              "display": ["Plus Jakarta Sans", "Noto Sans", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col">
+<!-- Sticky Top App Bar -->
+<header class="sticky top-0 z-10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm">
+<div class="flex items-center p-4">
+<button class="flex size-12 shrink-0 items-center justify-center text-stone-800 dark:text-stone-200">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="text-stone-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Gourmet Garden</h1>
+<button class="flex size-12 shrink-0 items-center justify-center text-stone-800 dark:text-stone-200">
+<span class="material-symbols-outlined">search</span>
+</button>
+</div>
+</header>
+<!-- Category Chips Navigation -->
+<nav class="sticky top-[72px] z-10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm">
+<div class="flex gap-3 px-4 py-3 overflow-x-auto whitespace-nowrap [-ms-overflow-style:none] [scrollbar-width:none]">
+<div class="flex h-8 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-primary pl-4 pr-4">
+<p class="text-black text-sm font-medium leading-normal">Appetizers</p>
+</div>
+<div class="flex h-8 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-stone-200 dark:bg-stone-800 pl-4 pr-4">
+<p class="text-stone-900 dark:text-white text-sm font-medium leading-normal">Main Courses</p>
+</div>
+<div class="flex h-8 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-stone-200 dark:bg-stone-800 pl-4 pr-4">
+<p class="text-stone-900 dark:text-white text-sm font-medium leading-normal">Pizzas</p>
+</div>
+<div class="flex h-8 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-stone-200 dark:bg-stone-800 pl-4 pr-4">
+<p class="text-stone-900 dark:text-white text-sm font-medium leading-normal">Salads</p>
+</div>
+<div class="flex h-8 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-stone-200 dark:bg-stone-800 pl-4 pr-4">
+<p class="text-stone-900 dark:text-white text-sm font-medium leading-normal">Desserts</p>
+</div>
+<div class="flex h-8 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-stone-200 dark:bg-stone-800 pl-4 pr-4">
+<p class="text-stone-900 dark:text-white text-sm font-medium leading-normal">Drinks</p>
+</div>
+</div>
 </nav>
-
-<!-- MAIN SECTION -->
-<section style="padding:40px 20px;">
-    <h2 style="text-align:center; font-size:28px; margin-bottom:30px; color:#333;">
-        Restaurants Near You
-    </h2>
-
-    <div style="
-        display:flex;
-        justify-content:center;
-        gap:20px;
-        flex-wrap:wrap;
-    ">
-
-        <!-- RESTAURANT CARD 1 -->
-        <div style="
-            background:#fff;
-            width:90%;
-            max-width:260px;
-            padding:20px;
-            border-radius:8px;
-            text-align:center;
-            box-shadow:0 4px 8px rgba(0,0,0,0.1);
-        ">
-            <img src="https://via.placeholder.com/200"
-                 style="width:100%; border-radius:6px;">
-            <h3 style="margin:15px 0 10px; font-size:20px; color:#333;">Pizza Palace</h3>
-            <p style="font-size:16px; color:#666;">Best Italian Pizzas</p>
-        </div>
-
-        <!-- RESTAURANT CARD 2 -->
-        <div style="
-            background:#fff;
-            width:90%;
-            max-width:260px;
-            padding:20px;
-            border-radius:8px;
-            text-align:center;
-            box-shadow:0 4px 8px rgba(0,0,0,0.1);
-        ">
-            <img src="https://via.placeholder.com/200"
-                 style="width:100%; border-radius:6px;">
-            <h3 style="margin:15px 0 10px; font-size:20px; color:#333;">Burger House</h3>
-            <p style="font-size:16px; color:#666;">Delicious Burgers</p>
-        </div>
-
-        <!-- RESTAURANT CARD 3 -->
-        <div style="
-            background:#fff;
-            width:90%;
-            max-width:260px;
-            padding:20px;
-            border-radius:8px;
-            text-align:center;
-            box-shadow:0 4px 8px rgba(0,0,0,0.1);
-        ">
-            <img src="https://via.placeholder.com/200"
-                 style="width:100%; border-radius:6px;">
-            <h3 style="margin:15px 0 10px; font-size:20px; color:#333;">Spice Curry</h3>
-            <p style="font-size:16px; color:#666;">Authentic Indian Food</p>
-        </div>
-
-    </div>
+<main class="flex-1 pb-28">
+<!-- Appetizers Section -->
+<section>
+<h2 class="text-stone-900 dark:text-white text-xl font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-6">Appetizers</h2>
+<!-- List Item with Quantity Selector -->
+<div class="flex gap-4 px-4 py-3">
+<div class="flex items-start gap-4 flex-1">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-[80px]" data-alt="Golden brown bruschetta with fresh tomatoes and basil" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB-GV_FmSKlDZ_iTzpRtZzAyzXbiSE0gVf8yYJL-tP-yYTIEYQBPrVHzylkh_fuVqE0NmO1Cm0Zddm5wi-jyQG-LpnzA1WsFGbzMAY5QeD-g4L_zM1XjQPTxusdyuCpAP2HL7OXvNxn0fJPn_BkaU5stuDtGsJDtFZ4AOHCHXnQixMDg92yEX0JPeF5UDXrYUqP0VMCgdqZqabemYeBghS7CXfAGP6YtWEpm3auEarYLFIq0ihtHTBB5sRhsabfBkCtwfNBTk1Daf0e");'></div>
+<div class="flex flex-1 flex-col justify-center gap-1">
+<p class="text-stone-900 dark:text-white text-base font-semibold leading-normal">Bruschetta</p>
+<p class="text-stone-600 dark:text-stone-400 text-sm font-normal leading-normal">Toasted bread with tomatoes, garlic, basil, and olive oil.</p>
+<p class="text-stone-800 dark:text-stone-200 text-sm font-medium leading-normal">$8.50</p>
+</div>
+</div>
+<div class="shrink-0 flex items-center">
+<div class="flex items-center gap-2 text-stone-900 dark:text-white">
+<button class="text-lg font-medium leading-normal flex h-8 w-8 items-center justify-center rounded-full bg-stone-200 dark:bg-stone-800 cursor-pointer">-</button>
+<span class="text-base font-medium leading-normal w-4 text-center">1</span>
+<button class="text-lg font-medium leading-normal flex h-8 w-8 items-center justify-center rounded-full bg-stone-200 dark:bg-stone-800 cursor-pointer">+</button>
+</div>
+</div>
+</div>
+<!-- List Item with Add Button -->
+<div class="flex gap-4 px-4 py-3">
+<div class="flex items-start gap-4 flex-1">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-[80px]" data-alt="Cheesy garlic bread sliced on a wooden board" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBVMunt4zKWSLd4ityQ3q8_XwlYSsL5pJ443sG_3eIUQk8-GxWGtw0frc3KnpduFo5cDnYzsay7QHRICN-heeuhUKG8juLahzwNXEtJDazSLIDvuARSKyrnxzatxZZ6fVQW1XzNt6GtBzqS9L4T1O4bXe4SVs22bOO4QTPlnYXI8Rqovo4TSv2D7RxZQEPY166SnrKuZR_s2WP12U8cMiAi_729hVtxT6Pvg-vIRifFEDXO1VL87j01INVrPMocuVBtxwz703GDvlIz");'></div>
+<div class="flex flex-1 flex-col justify-center gap-1">
+<p class="text-stone-900 dark:text-white text-base font-semibold leading-normal">Garlic Bread</p>
+<p class="text-stone-600 dark:text-stone-400 text-sm font-normal leading-normal">Toasted bread with a savory garlic butter spread and cheese.</p>
+<p class="text-stone-800 dark:text-stone-200 text-sm font-medium leading-normal">$6.00</p>
+</div>
+</div>
+<div class="shrink-0 flex items-center">
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-primary/20 dark:bg-primary/30 text-primary text-sm font-bold leading-normal w-fit">
+<span class="truncate">Add</span>
+</button>
+</div>
+</div>
 </section>
-
-</body>
-</html>
+<!-- Main Courses Section -->
+<section>
+<h2 class="text-stone-900 dark:text-white text-xl font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-8">Main Courses</h2>
+<div class="flex gap-4 px-4 py-3">
+<div class="flex items-start gap-4 flex-1">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-[80px]" data-alt="Spaghetti bolognese in a white bowl" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAQhK08fuFLBPCz3wJvG-yGzzQeKbyBvEcBlhYBNL6aAR6_QvtpKDXrARwy6A5X5ZBdnYgDud-VMEhHjRIBsSuTkfII-d6W1-wzvIRdxhLBCn4yxH5Df2kx9n-UwsZs-yWbNiw9dJSqW4smRVQTFOAtKD9reE7IsD-0unDmcYqzUOu5vwG72tn9_-xbrbs2s_7VsLHbnideFr8tse3DmwE-vh6_JPhTW_YAcUmRYexQlVK7tBJRWUv2jZ9KVdWg6gBVUxW04RLUnVO8");'></div>
+<div class="flex flex-1 flex-col justify-center gap-1">
+<p class="text-stone-900 dark:text-white text-base font-semibold leading-normal">Spaghetti Bolognese</p>
+<p class="text-stone-600 dark:text-stone-400 text-sm font-normal leading-normal">Classic Italian pasta with a rich meat and tomato sauce.</p>
+<p class="text-stone-800 dark:text-stone-200 text-sm font-medium leading-normal">$15.00</p>
+</div>
+</div>
+<div class="shrink-0 flex items-center">
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-primary/20 dark:bg-primary/30 text-primary text-sm font-bold leading-normal w-fit">
+<span class="truncate">Add</span>
+</button>
+</div>
+</div>
+<div class="flex gap-4 px-4 py-3">
+<div class="flex items-start gap-4 flex-1">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-[80px]" data-alt="Grilled salmon steak with asparagus and lemon" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDHndCjd7POkBZqtt_pOytuiq1gmcM9Z-gCaEgORj_zyxtz7TcYZoRlW6zGHDe4jC4hVsY8CxkJZDOgv7Q-ROaKzGI3Cir6LE1QvdvZVDmaAmSdJ1ftKoQ0SANfH-B7cWurVIjo3X2pzIhWpk3TbSKNbiD4-dFEUmZJ3h67FkH_Qml4J-gCb0NE10-GJy_o6Ih4WJkaySrwzbwnPgSOMKX_aJVrbUdHXEJ7YuziSwenmvt3NDsxbUJ5C6cdp9Eb_RcvGg3Flq94Y2um");'></div>
+<div class="flex flex-1 flex-col justify-center gap-1">
+<p class="text-stone-900 dark:text-white text-base font-semibold leading-normal">Grilled Salmon</p>
+<p class="text-stone-600 dark:text-stone-400 text-sm font-normal leading-normal">Served with seasonal vegetables and a lemon-dill sauce.</p>
+<p class="text-stone-800 dark:text-stone-200 text-sm font-medium leading-normal">$22.50</p>
+</div>
+</div>
+<div class="shrink-0 flex items-center">
+<div class="flex items-center gap-2 text-stone-900 dark:text-white">
+<button class="text-lg font-medium leading-normal flex h-8 w-8 items-center justify-center rounded-full bg-stone-200 dark:bg-stone-800 cursor-pointer">-</button>
+<span class="text-base font-medium leading-normal w-4 text-center">2</span>
+<button class="text-lg font-medium leading-normal flex h-8 w-8 items-center justify-center rounded-full bg-stone-200 dark:bg-stone-800 cursor-pointer">+</button>
+</div>
+</div>
+</div>
+<div class="flex gap-4 px-4 py-3">
+<div class="flex items-start gap-4 flex-1">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-[80px]" data-alt="Margherita pizza on a wooden peel" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAuQ8HVnoBtyfMOjYnyR9TdueHl3Gvygx6nske09Hl0-jZR_RXzTFjIffkIoIiuKbH-EXsGrAXtNJolwq4x268y-Mi-7QHnur9Qd5r2k-TCI2VU-u-4mdSzGc-QrQf3WmTSh-CfLQVrojnX0wZkI5Ib74_P6Qa6eHZ6DVpXcw9qQJQbDWZSqouERTw06HcyxHBeLdLbKVFNgt_vZU_sjCpNxindYC6P7NahjcROCG_KimNjhjS4AP4G8ysj3gfTjCtl8mOWy2O3nP4V");'></div>
+<div class="flex flex-1 flex-col justify-center gap-1">
+<p class="text-stone-900 dark:text-white text-base font-semibold leading-normal">Margherita Pizza</p>
+<p class="text-stone-600 dark:text-stone-400 text-sm font-normal leading-normal">Fresh mozzarella, San Marzano tomatoes, and basil.</p>
+<p class="text-stone-800 dark:text-stone-200 text-sm font-medium leading-normal">$18.00</p>
+</div>
+</div>
+<div class="shrink-0 flex items-center">
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-primary/20 dark:bg-primary/30 text-primary text-sm font-bold leading-normal w-fit">
+<span class="truncate">Add</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Floating "View Cart" Button -->
+<div class="fixed bottom-0 left-0 right-0 p-4 bg-transparent">
+<button class="flex w-full cursor-pointer items-center justify-between overflow-hidden rounded-lg h-14 px-4 bg-primary text-black shadow-lg">
+<div class="flex items-center justify-center rounded-full bg-black/10 h-7 w-7 text-sm font-bold">
+<span>3</span>
+</div>
+<span class="text-base font-bold">View Cart</span>
+<span class="text-base font-bold">$53.50</span>
+</button>
+</div>
+</div>
+</body></html>

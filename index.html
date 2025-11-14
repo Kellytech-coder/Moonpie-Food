@@ -1,257 +1,193 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MoonpieFood</title>
-</head>
-<body style="margin:0; font-family:Arial, sans-serif; background:#f4f4f4;">
 
-<header style="width:100%; background:#fff; box-shadow:0 2px 4px rgba(0,0,0,0.1); position:fixed; top:0; z-index:100;">
-
-    <!-- RESPONSIVE NAVBAR -->
-    <nav style="
-        display:flex; 
-        justify-content:space-between; 
-        align-items:center; 
-        padding:15px 10px; 
-        flex-wrap:wrap;
-        position:relative;
-    ">
-        <h1 style="margin:0; font-size:22px; color:#333;">MoonpieFood</h1>
-
-        <!-- Hamburger Menu Icon (hidden on desktop) -->
-        <button id="menuToggle" style="
-            font-size:22px; 
-            background:none; 
-            border:none; 
-            cursor:pointer; 
-            display:none;
-        ">☰</button>
-
-        <ul id="navLinks" style="
-            list-style:none; 
-            display:flex; 
-            gap:15px; 
-            margin:10px 0 0 0; 
-            padding:0; 
-            flex-wrap:wrap;
-            justify-content:flex-end;
-            width:100%;
-        ">
-            <li><a href="index.html" style="text-decoration:none; color:#333; font-size:15px; font-weight:bold;">Home</a></li>
-            <li><a href="restuarants.html" style="text-decoration:none; color:#333; font-size:15px; font-weight:bold;">Restaurants</a></li>
-            <li><a href="cart.html" style="text-decoration:none; color:#333; font-size:15px; font-weight:bold;">Cart (<span id="cart-count">0</span>)</a></li>
-            <li><a href="login.html" style="text-decoration:none; color:#333; font-size:15px; font-weight:bold;">Login</a></li>
-
-            <!-- SETTINGS DROPDOWN -->
-            <li style="position:relative;">
-                <button style="padding:6px 10px; font-size:16px; cursor:pointer;">⚙️ Settings</button>
-                <div style="
-                    position:absolute;
-                    top:40px;
-                    right:0;
-                    background:white;
-                    border:1px solid #ccc;
-                    border-radius:5px;
-                    padding:10px;
-                    width:120px;
-                    display:none;
-                " id="settingsMenu">
-                    <button id="darkToggle" style="padding:6px; font-size:16px; cursor:pointer; width:100%;">🌙 Dark Mode</button>
-                </div>
-            </li>
-        </ul>
-    </nav>
-
-</header>
-
-<!-- HERO SECTION -->
-<div style="
-    text-align:center; 
-    padding:40px 15px; 
-    background:#ffcc00;
-    margin-top:130px;
-">
-    <h2 style="font-size:28px; margin-bottom:10px;">Delicious Meals Delivered Fast</h2>
-    <p style="font-size:16px; margin-bottom:20px;">Real food, real taste, real quick.</p>
-
-    <!-- RESPONSIVE SEARCH BAR -->
-    <div style="
-        display:flex; 
-        justify-content:center; 
-        flex-wrap:wrap; 
-        gap:10px;
-        width:100%;
-    ">
-        <input 
-            type="text" 
-            id="searchBar" 
-            placeholder="Search for food..."
-            style="
-                padding:12px; 
-                width:80%; 
-                max-width:400px; 
-                min-width:200px;
-                border:1px solid #ccc; 
-                border-radius:4px;
-                font-size:16px;
-            "
-        >
-        <button id="searchBtn" 
-            style="
-                padding:12px 20px; 
-                background:#333; 
-                color:#fff; 
-                border:none; 
-                border-radius:4px; 
-                cursor:pointer;
-                font-size:16px;
-            ">
-            Search
-        </button>
-    </div>
-</div>
-
-<!-- FOOD MENU -->
-<section style="padding:30px 10px;">
-    <h2 style="text-align:center; font-size:24px; margin-bottom:25px;">Popular Dishes</h2>
-    <div style="
-        display:flex; 
-        justify-content:center; 
-        gap:20px; 
-        flex-wrap:wrap;
-    ">
-        <!-- ITEM CARD TEMPLATE -->
-        <div style="
-            background:#fff; 
-            padding:15px; 
-            border-radius:8px; 
-            width:90%; 
-            max-width:260px;
-            box-shadow:0 4px 8px rgba(0,0,0,0.1); 
-            text-align:center;
-        ">
-            <img src="https://source.unsplash.com/800x600/?burger" alt="" 
-                 style="width:100%; border-radius:6px;">
-            <h3 style="margin:15px 0 5px; font-size:18px;">Cheese Burger</h3>
-            <p style="font-size:16px; margin:5px 0;">$8.99</p>
-            <button 
-                class="add-cart" 
-                data-name="Cheese Burger" 
-                data-price="8.99"
-                style="
-                    margin-top:10px; 
-                    padding:10px 20px; 
-                    background:#333; 
-                    color:#fff; 
-                    border:none; 
-                    border-radius:5px; 
-                    cursor:pointer;
-                ">
-                Add to Cart
-            </button>
-        </div>
-
-        <div style="
-            background:#fff; 
-            padding:15px; 
-            border-radius:8px; 
-            width:90%; 
-            max-width:260px;
-            box-shadow:0 4px 8px rgba(0,0,0,0.1); 
-            text-align:center;
-        ">
-            <img src="https://source.unsplash.com/800x600/?pizza" alt=""
-                 style="width:100%; border-radius:6px;">
-            <h3 style="margin:15px 0 5px; font-size:18px;">Veggie Pizza</h3>
-            <p style="font-size:16px; margin:5px 0;">$12.49</p>
-            <button 
-                class="add-cart" 
-                data-name="Veggie Pizza" 
-                data-price="12.49"
-                style="
-                    margin-top:10px; 
-                    padding:10px 20px; 
-                    background:#333; 
-                    color:#fff; 
-                    border:none; 
-                    border-radius:5px; 
-                    cursor:pointer;
-                ">
-                Add to Cart
-            </button>
-        </div>
-
-        <div style="
-            background:#fff; 
-            padding:15px; 
-            border-radius:8px; 
-            width:90%; 
-            max-width:260px;
-            box-shadow:0 4px 8px rgba(0,0,0,0.1); 
-            text-align:center;
-        ">
-            <img src="https://source.unsplash.com/800x600/?pasta" alt=""
-                 style="width:100%; border-radius:6px;">
-            <h3 style="margin:15px 0 5px; font-size:18px;">Italian Pasta</h3>
-            <p style="font-size:16px; margin:5px 0;">$10.50</p>
-            <button 
-                class="add-cart" 
-                data-name="Italian Pasta" 
-                data-price="10.50"
-                style="
-                    margin-top:10px; 
-                    padding:10px 20px; 
-                    background:#333; 
-                    color:#fff; 
-                    border:none; 
-                    border-radius:5px; 
-                    cursor:pointer;
-                ">
-                Add to Cart
-            </button>
-        </div>
-
-    </div>
-</section>
-
-<!-- SCRIPTS -->
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Food Delivery Homepage</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
 <script>
-// Settings dropdown toggle
-const settingsButton = document.querySelector("li button");
-const settingsMenu = document.getElementById("settingsMenu");
-
-settingsButton.addEventListener("click", () => {
-    settingsMenu.style.display = settingsMenu.style.display === "block" ? "none" : "block";
-});
-
-// Hamburger menu toggle
-const menuToggle = document.getElementById("menuToggle");
-const navLinks = document.getElementById("navLinks");
-
-menuToggle.addEventListener("click", () => {
-    navLinks.style.display = navLinks.style.display === "flex" ? "none" : "flex";
-});
-
-// Show/hide hamburger on small screens
-function checkScreen() {
-    if(window.innerWidth <= 768){
-        menuToggle.style.display = "block";
-        navLinks.style.display = "none";
-        navLinks.style.flexDirection = "column";
-        navLinks.style.width = "100%";
-    } else {
-        menuToggle.style.display = "none";
-        navLinks.style.display = "flex";
-        navLinks.style.flexDirection = "row";
-        navLinks.style.width = "100%";
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ee9d2b",
+                        "background-light": "#f8f7f6",
+                        "background-dark": "#221a10",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
     }
-}
-window.addEventListener("resize", checkScreen);
-checkScreen();
-</script>
-
-<script src="script.js"></script>
-</body>
-</html>
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col">
+<!-- Top App Bar -->
+<div class="sticky top-0 z-20 w-full bg-background-light dark:bg-background-dark pt-4">
+<div class="flex items-center p-4 pb-2 justify-between">
+<div class="text-slate-800 dark:text-white flex size-12 shrink-0 items-center justify-start">
+<span class="material-symbols-outlined text-3xl text-primary">location_on</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1">Delivering to San Francisco, CA</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 bg-transparent text-slate-800 dark:text-white gap-2 text-base font-bold leading-normal tracking-[0.015em] min-w-0 p-0">
+<span class="material-symbols-outlined text-2xl">notifications</span>
+</button>
+</div>
+</div>
+<!-- Search Bar -->
+<div class="px-4 py-3">
+<label class="flex flex-col min-w-40 h-14 w-full">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+<div class="text-slate-500 dark:text-slate-400 flex border-none bg-slate-200 dark:bg-zinc-800 items-center justify-center pl-4 rounded-l-lg border-r-0">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-slate-900 dark:text-white focus:outline-0 focus:ring-0 border-none bg-slate-200 dark:bg-zinc-800 focus:border-none h-full placeholder:text-slate-500 dark:placeholder:text-slate-400 px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal" placeholder="Search for restaurants or dishes" value=""/>
+</div>
+</label>
+</div>
+<!-- Filter Chips -->
+<div class="flex gap-3 px-4 pt-2 pb-4 overflow-x-auto [-ms-scrollbar-style:none] [scrollbar-width:none] [&amp;::-webkit-scrollbar]:hidden">
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary pl-4 pr-4">
+<p class="text-black text-sm font-medium leading-normal">All</p>
+</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-slate-200 dark:bg-zinc-800 pl-4 pr-4">
+<p class="text-slate-900 dark:text-white text-sm font-medium leading-normal">Offers</p>
+</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-slate-200 dark:bg-zinc-800 pl-4 pr-4">
+<p class="text-slate-900 dark:text-white text-sm font-medium leading-normal">Top Rated</p>
+</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-slate-200 dark:bg-zinc-800 pl-4 pr-4">
+<p class="text-slate-900 dark:text-white text-sm font-medium leading-normal">Fastest Delivery</p>
+</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-slate-200 dark:bg-zinc-800 pl-4 pr-4">
+<p class="text-slate-900 dark:text-white text-sm font-medium leading-normal">New</p>
+</button>
+</div>
+</div>
+<main class="flex-grow pb-24">
+<!-- Featured Restaurants Section -->
+<h3 class="text-slate-900 dark:text-white text-xl font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Featured Restaurants</h3>
+<div class="flex overflow-x-auto [-ms-scrollbar-style:none] [scrollbar-width:none] [&amp;::-webkit-scrollbar]:hidden">
+<div class="flex items-stretch p-4 pt-2 gap-4">
+<div class="flex h-full flex-1 flex-col gap-3 rounded-lg min-w-72">
+<div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl flex flex-col relative" data-alt="A juicy gourmet burger with fries" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuClbt1yY4zFroZ7trneGg2OyKVMrYEPckhg7qwyRMdJviq2CNrHD2MLO62KNkf4mUPCOhNy5U-Qoakl2-5ETAq0J-FuHwfghzKscd1vEiIsixWZ4WzYHjukR8dZMA1FpCf4XkYOt66KTDARPDISZ2Y9ADVeI9Sj1V_ByhkQ3bUvQyHmpjovGke7gMEZXmWaa2eu0w401QcW3Vfn-dQgbHm-Nv-eLjPspEkVijH7zGoymtjZUvA6P6gwP9KLzdDWuBEvGTd1__usidc_");'>
+<div class="absolute top-3 left-3 bg-primary/80 backdrop-blur-sm text-black text-xs font-bold py-1 px-3 rounded-full">20% OFF</div>
+</div>
+<div>
+<p class="text-slate-900 dark:text-white text-base font-bold leading-normal">The Burger Joint</p>
+<p class="text-slate-600 dark:text-slate-400 text-sm font-normal leading-normal">$$ • American • ★ 4.7</p>
+</div>
+</div>
+<div class="flex h-full flex-1 flex-col gap-3 rounded-lg min-w-72">
+<div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl flex flex-col" data-alt="A variety of fresh sushi rolls on a platter" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCwzNM0SvA_IDIErQZ-gida1re35s8Fyc8dxFdJ-B8A_8mfR7yxY_eJSvlEOgJ4tr0Xx1zQJzZuFmU1sEyIvuk_ZytNx24Y1d2GHkygYjcoby41Vvby54-A0a0li86pMUGzFkgBXgSTe5thfJLPxvgQKX7yxgKyRg9gaHuk8h7HTsgsrt_kNANdLx3ep67WEw-QllOtPtBzKLTN2HM_Gwh3fCVe_3c0fNHNx76Tn24SwXLWMBvXUbHYSVnItkBIWBKT1Z3DKaRymN7F");'></div>
+<div>
+<p class="text-slate-900 dark:text-white text-base font-bold leading-normal">Sushi House</p>
+<p class="text-slate-600 dark:text-slate-400 text-sm font-normal leading-normal">$$$ • Japanese • ★ 4.9</p>
+</div>
+</div>
+<div class="flex h-full flex-1 flex-col gap-3 rounded-lg min-w-72">
+<div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl flex flex-col" data-alt="A steamy bowl of traditional Japanese ramen" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBzKdlZSpvjuAhPXEZIL_gsUF9HehzvYxpreVEvDwWbh3lFPeldU0Em5PnU9--9un6iSGaz1zEup_5jvZCrM7gIybTDhZBRTYgK4_cAbBiiIxbMNNzPb5B-eXLnCIBOiRTVNjN2NWM2Fq5VSimBxfcEH72TXoUDGo1Zlb2iL24SmpNSvsvQEGfTxs4rQNIu70goZa7ZBiJDJuiG8rDRWlT5F9vzJnZwg1uXy7lnBAea_yw3kftfAZ3N-uBiK8rY-2RaRHzeexUD8DMY");'></div>
+<div>
+<p class="text-slate-900 dark:text-white text-base font-bold leading-normal">Ramen Express</p>
+<p class="text-slate-600 dark:text-slate-400 text-sm font-normal leading-normal">$$ • Japanese • ★ 4.6</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Popular Near You Section -->
+<h3 class="text-slate-900 dark:text-white text-xl font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Popular Near You</h3>
+<div class="flex flex-col gap-6 p-4">
+<!-- Restaurant Card 1 -->
+<div class="flex w-full flex-col gap-3 rounded-lg">
+<div class="w-full bg-center bg-no-repeat aspect-[16/10] bg-cover rounded-xl relative" data-alt="A classic margherita pizza with fresh basil" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuChjfUXO2_YGhkESa8iCBtX-TU3stvHJpHH7ibIYE5y0So-VS1lK_BTV5KdMvfcWBsiX9eyTOjTZ0YnRUvQ5LrTgFE1IjdIcDQfsAzeo5Gt6jcwTiBXkgW-zz0pgpM_GOi1KgO8Mv6i-7ua9YrPi5rrT-nkfpWXn2dC_ULuB4t-GurXMTg8SOcXb3mEdEg23uK0Ir28kbP-FEwX6x7ynYo0CKVIweE-3MK8ZreYgh5OtnWn0tICi5wmwNWfeNQoSP3mfXmD47uLNXnF");'>
+<div class="absolute bottom-3 left-3 bg-black/50 backdrop-blur-sm text-white flex items-center gap-1.5 py-1.5 px-3 rounded-full">
+<span class="material-symbols-outlined text-base">schedule</span>
+<p class="text-xs font-medium">25-35 min</p>
+</div>
+</div>
+<div>
+<p class="text-slate-900 dark:text-white text-base font-bold leading-normal">Nonna's Pizzeria</p>
+<p class="text-slate-600 dark:text-slate-400 text-sm font-normal leading-normal">$$ • Italian • Pizza • ★ 4.8</p>
+</div>
+</div>
+<!-- Restaurant Card 2 -->
+<div class="flex w-full flex-col gap-3 rounded-lg">
+<div class="w-full bg-center bg-no-repeat aspect-[16/10] bg-cover rounded-xl relative" data-alt="A variety of flavorful Indian curries" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA8N5dbSNvwS0uwh5D-FtSjN7ztqh7SK5BLixP4zCexXVJNebU7OxPebbE8afjA7FDUSwYRa83zXvLsX3Cfd0xo2aTO_M69fVYc-N0pLtle7Vo5p9RGTr8nWpCXrvpzzQeoGi9vfgXhHMyGKEIkLoAwCkGa7VcyYlr502shhwYgOqMlxVirBg2yIDKmxx8f8_CzDdTLCl_Cka_wVjkWJNJSB4dH6elPpznbI0L2Nxgzpi9SqFJwO6KusOqTmMBalimtXCAFtuGSyyiO");'>
+<div class="absolute bottom-3 left-3 bg-black/50 backdrop-blur-sm text-white flex items-center gap-1.5 py-1.5 px-3 rounded-full">
+<span class="material-symbols-outlined text-base">schedule</span>
+<p class="text-xs font-medium">40-50 min</p>
+</div>
+<div class="absolute top-3 left-3 bg-primary/80 backdrop-blur-sm text-black text-xs font-bold py-1 px-3 rounded-full">FREE DELIVERY</div>
+</div>
+<div>
+<p class="text-slate-900 dark:text-white text-base font-bold leading-normal">Curry Palace</p>
+<p class="text-slate-600 dark:text-slate-400 text-sm font-normal leading-normal">$$ • Indian • ★ 4.6</p>
+</div>
+</div>
+<!-- Restaurant Card 3 -->
+<div class="flex w-full flex-col gap-3 rounded-lg">
+<div class="w-full bg-center bg-no-repeat aspect-[16/10] bg-cover rounded-xl relative" data-alt="Healthy and colorful salad bowls" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCL1HuIzlRgcZii87gt7JMtl5hAR5NAVRNZNftorYyJbMgfOTVR32oU6MMogUdbHy1jID6y_DM64oo_u1afPTsKtM5a35vCVw6kHRAtdu8qecjYUCt0_dgfD7IZC_KaXi35q-UwHTW15M4_Ebn49MLx_HUFGma3z94Nfh506HWqBufG3mfMQvVw_sr4jqhpkxxgqRD00ut4QpANg19nTNS3jvXhvaz8gDXLf6MlutXsBLmjqv56PL4Vd50y57d7HOqPEtvuztAlDAr9");'>
+<div class="absolute bottom-3 left-3 bg-black/50 backdrop-blur-sm text-white flex items-center gap-1.5 py-1.5 px-3 rounded-full">
+<span class="material-symbols-outlined text-base">schedule</span>
+<p class="text-xs font-medium">15-25 min</p>
+</div>
+</div>
+<div>
+<p class="text-slate-900 dark:text-white text-base font-bold leading-normal">Green Leaf Salads</p>
+<p class="text-slate-600 dark:text-slate-400 text-sm font-normal leading-normal">$ • Healthy • ★ 4.9</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<div class="fixed bottom-0 left-0 right-0 h-20 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-lg border-t border-slate-200 dark:border-zinc-800">
+<div class="flex h-full items-center justify-around px-4">
+<button class="flex flex-col items-center justify-center gap-1 text-primary">
+<span class="material-symbols-outlined">home</span>
+<p class="text-xs font-bold">Home</p>
+</button>
+<button class="flex flex-col items-center justify-center gap-1 text-slate-500 dark:text-slate-400">
+<span class="material-symbols-outlined">receipt_long</span>
+<p class="text-xs font-medium">Orders</p>
+</button>
+<button class="flex flex-col items-center justify-center gap-1 text-slate-500 dark:text-slate-400">
+<span class="material-symbols-outlined">favorite</span>
+<p class="text-xs font-medium">Favorites</p>
+</button>
+<button class="flex flex-col items-center justify-center gap-1 text-slate-500 dark:text-slate-400">
+<span class="material-symbols-outlined">person</span>
+<p class="text-xs font-medium">Profile</p>
+</button>
+</div>
+</div>
+</div>
+</body></html>

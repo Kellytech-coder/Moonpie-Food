@@ -1,130 +1,188 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order Form</title>
-</head>
 
-<body style="margin:0; font-family:Arial, sans-serif; background:#f5f5f5;">
-
-
-<div style="
-    max-width:450px;
-    margin:40px auto;
-    background:white;
-    padding:25px;
-    border-radius:10px;
-    box-shadow:0 3px 8px rgba(0,0,0,0.1);
-">
-
-    <h2 style="
-        text-align:center;
-        margin-top:0;
-        margin-bottom:20px;
-        font-size:24px;
-    ">
-        Complete Your Order
-    </h2>
-
-    <form id="orderForm" style="display:flex; flex-direction:column; gap:15px;">
-
-        <input type="text" placeholder="Full Name" required
-            style="
-                padding:12px;
-                font-size:16px;
-                border:1px solid #ccc;
-                border-radius:6px;
-                width:100%;
-                box-sizing:border-box;
-            ">
-
-        <input type="text" placeholder="Address" required
-            style="
-                padding:12px;
-                font-size:16px;
-                border:1px solid #ccc;
-                border-radius:6px;
-                width:100%;
-                box-sizing:border-box;
-            ">
-
-        <input type="text" placeholder="Phone Number" required
-            style="
-                padding:12px;
-                font-size:16px;
-                border:1px solid #ccc;
-                border-radius:6px;
-                width:100%;
-                box-sizing:border-box;
-            ">
-
-        <select id="paymentMethod" required
-            style="
-                padding:12px;
-                font-size:16px;
-                border:1px solid #ccc;
-                border-radius:6px;
-                width:100%;
-                box-sizing:border-box;
-                background:white;
-            ">
-            <option value="">Select Payment Method</option>
-            <option value="payondelivery">Pay on Delivery</option>
-            <option value="stripe">Stripe</option>
-            <option value="card">Pay with Card</option>
-        </select>
-
-        <button type="submit" style="
-            padding:12px;
-            font-size:18px;
-            background:#ff4d4d;
-            color:white;
-            border:none;
-            border-radius:6px;
-            cursor:pointer;
-        ">
-            Place Order
-        </button>
-
-    </form>
-</div>
-
-<!-- REDIRECT SCRIPT -->
-<script>
-document.getElementById("orderForm").addEventListener("submit", function(e) {
-    e.preventDefault(); // stop normal form submit
-
-    const method = document.getElementById("paymentMethod").value;
-
-    if (method === "payondelivery") {
-        window.location.href = "payondelivery.html";
-    } else if (method === "stripe") {
-        window.location.href = "stripe.html";
-    } else if (method === "card") {
-        window.location.href = "card.html";
-    } else {
-        alert("Please select a payment method.");
-    }
-});
-</script>
-
-<!-- RESPONSIVE INLINE CSS -->
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Checkout</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
 <style>
-@media (max-width: 600px) {
-    div {
-        margin:20px;
-        padding:20px !important;
+      .material-symbols-outlined {
+        font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+      }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#ee9d2b",
+              "background-light": "#f8f7f6",
+              "background-dark": "#181511",
+            },
+            fontFamily: {
+              "display": ["Plus Jakarta Sans", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "1.5rem", "xl": "2rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
     }
-    h2 {
-        font-size:20px !important;
-    }
-    input, select, button {
-        font-size:15px !important;
-        padding:10px !important;
-    }
-}
-</style>
-
-</body>
-</html>
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<!-- Top App Bar -->
+<header class="sticky top-0 z-10 flex items-center bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm p-4 pb-2 justify-between border-b border-white/10 dark:border-white/10">
+<button class="text-stone-800 dark:text-white flex size-10 shrink-0 items-center justify-center rounded-full">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="text-stone-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Checkout</h1>
+<div class="size-10"></div>
+</header>
+<main class="flex-grow pb-36">
+<!-- Headline Text -->
+<h2 class="text-stone-900 dark:text-white tracking-light text-[28px] font-bold leading-tight px-4 text-left pb-3 pt-5">Your Order from The Burger Place</h2>
+<!-- Order Items List -->
+<div class="flex flex-col gap-px px-4">
+<!-- List Item 1 -->
+<div class="flex gap-4 bg-transparent py-3 justify-between">
+<div class="flex items-start gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-[70px]" data-alt="A classic cheeseburger in a sesame seed bun" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC5ETvcjoW1QxukUc1RbQxpL2MoKGjnph3bIqrsGfsbntUl2d27Py6O40Or5SRQJQ_0MsABDAGtLtL1hOay9p-_1Fbjgi0QzlN8_lqYm2rUEoj9UvG0jzSVsXSH7nxj1iCpa-T2mF5Syj1eLSPGyYVZets9_e_oFAmJ55_XvPEbTqPYKFS2e1jOGjR0-ClX-cAofiLNuQ9_dVfh1jOBguyxRiqtoOB1KIFERGrQDcQp-9zscugRT4xD4NEKY2yAQoVgS4zkx8M4c8Dz");'></div>
+<div class="flex flex-1 flex-col justify-center gap-1">
+<p class="text-stone-900 dark:text-white text-base font-medium leading-normal">Classic Cheeseburger</p>
+<p class="text-stone-500 dark:text-stone-400 text-sm font-normal leading-normal">No onions, extra pickles</p>
+<p class="text-stone-800 dark:text-stone-200 text-sm font-medium leading-normal">$12.99</p>
+</div>
+</div>
+<div class="shrink-0">
+<div class="flex items-center gap-2 text-stone-900 dark:text-white">
+<button class="text-base font-medium leading-normal flex h-7 w-7 items-center justify-center rounded-full bg-stone-200 dark:bg-stone-800 cursor-pointer">-</button>
+<span class="text-base font-medium leading-normal w-4 text-center">1</span>
+<button class="text-base font-medium leading-normal flex h-7 w-7 items-center justify-center rounded-full bg-stone-200 dark:bg-stone-800 cursor-pointer">+</button>
+</div>
+</div>
+</div>
+<!-- List Item 2 -->
+<div class="flex gap-4 bg-transparent py-3 justify-between">
+<div class="flex items-start gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-[70px]" data-alt="A serving of crispy french fries" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDF1gIwy-i3-ead0e5T8-aqHCuSkyD-j9v8_UEuJC-OGvVKiPRFDa1ZI5uiiC-rAqjHqiMYkFDp6sAfmDcUagXKQpnDKq4hOht-ChiBDHdoQ0a1aDR-0EDvZUPN4JsY0qp6FBuCiGKVCsZUKsKz8CJwU5Lqjf3PReoEODe8Ek-viDp5Nlw_j3tJWYqtBJqZnX9aO_bggJBbb4sYhU82fgLsjmu4JVbhIqbXbJcWhJviXnU-yYp5r3ewsoFvmm-NRz1rXPbFz_tBVmZ3");'></div>
+<div class="flex flex-1 flex-col justify-center gap-1">
+<p class="text-stone-900 dark:text-white text-base font-medium leading-normal">Large Fries</p>
+<p class="text-stone-500 dark:text-stone-400 text-sm font-normal leading-normal">Crispy and salted</p>
+<p class="text-stone-800 dark:text-stone-200 text-sm font-medium leading-normal">$4.50</p>
+</div>
+</div>
+<div class="shrink-0">
+<div class="flex items-center gap-2 text-stone-900 dark:text-white">
+<button class="text-base font-medium leading-normal flex h-7 w-7 items-center justify-center rounded-full bg-stone-200 dark:bg-stone-800 cursor-pointer">-</button>
+<span class="text-base font-medium leading-normal w-4 text-center">1</span>
+<button class="text-base font-medium leading-normal flex h-7 w-7 items-center justify-center rounded-full bg-stone-200 dark:bg-stone-800 cursor-pointer">+</button>
+</div>
+</div>
+</div>
+<!-- List Item 3 -->
+<div class="flex gap-4 bg-transparent py-3 justify-between">
+<div class="flex items-start gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-[70px]" data-alt="A tall glass of vanilla milkshake with a straw" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuARyxuqbnqybw8GBkjKSw09y-KMHuQKPCTG33nw_7SCT3-5jYp5-nm96Ur_DAXJqgsRHWrnJqjs1B6JpUVx0Fk_lqHaEc0C1Pk-1exCkEY7IYnO-x5cI24pBcFVxN8zFexir9XqVYTwrsjqZxfg_4fQp2g17svKe1ROMrGhz6eht8Pe4wMwY7bVianHjTxEwRN1jO0jcBCu26ZFyyxBCY8ejlKcnphaZRy_GLDTY5zmgZH8GMJXdkUFNgPwfO2fJZSdbd2p4tu1w4Pb");'></div>
+<div class="flex flex-1 flex-col justify-center gap-1">
+<p class="text-stone-900 dark:text-white text-base font-medium leading-normal">Vanilla Milkshake</p>
+<p class="text-stone-500 dark:text-stone-400 text-sm font-normal leading-normal">Made with real ice cream</p>
+<p class="text-stone-800 dark:text-stone-200 text-sm font-medium leading-normal">$6.00</p>
+</div>
+</div>
+<div class="shrink-0">
+<div class="flex items-center gap-2 text-stone-900 dark:text-white">
+<button class="text-base font-medium leading-normal flex h-7 w-7 items-center justify-center rounded-full bg-stone-200 dark:bg-stone-800 cursor-pointer">-</button>
+<span class="text-base font-medium leading-normal w-4 text-center">1</span>
+<button class="text-base font-medium leading-normal flex h-7 w-7 items-center justify-center rounded-full bg-stone-200 dark:bg-stone-800 cursor-pointer">+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Sections Divider -->
+<div class="h-2 my-4 bg-stone-100 dark:bg-black/20"></div>
+<!-- Details Section -->
+<div class="px-4 flex flex-col gap-4">
+<!-- Delivery Details -->
+<div class="flex items-center justify-between gap-4 rounded-lg bg-stone-100 dark:bg-stone-900 p-4">
+<div class="flex items-center gap-4">
+<div class="flex size-12 items-center justify-center rounded-full bg-primary/20 text-primary">
+<span class="material-symbols-outlined text-3xl">location_on</span>
+</div>
+<div>
+<p class="text-stone-500 dark:text-stone-400 text-sm">Deliver to</p>
+<p class="text-stone-900 dark:text-white font-medium">123 Market St, Suite 200</p>
+</div>
+</div>
+<button class="text-primary font-bold text-sm">Change</button>
+</div>
+<!-- Payment Method -->
+<div class="flex items-center justify-between gap-4 rounded-lg bg-stone-100 dark:bg-stone-900 p-4">
+<div class="flex items-center gap-4">
+<div class="flex size-12 items-center justify-center rounded-full bg-primary/20 text-primary">
+<span class="material-symbols-outlined text-3xl">credit_card</span>
+</div>
+<div>
+<p class="text-stone-500 dark:text-stone-400 text-sm">Payment Method</p>
+<p class="text-stone-900 dark:text-white font-medium">Visa **** 1234</p>
+</div>
+</div>
+<button class="text-primary font-bold text-sm">Change</button>
+</div>
+<!-- Promo Code -->
+<div class="flex items-center gap-4 rounded-lg bg-stone-100 dark:bg-stone-900 p-2 pr-4">
+<div class="flex size-12 items-center justify-center rounded-full text-primary">
+<span class="material-symbols-outlined text-3xl">sell</span>
+</div>
+<input class="flex-grow bg-transparent border-0 focus:ring-0 p-0 text-stone-900 dark:text-white placeholder-stone-500 dark:placeholder-stone-400" placeholder="Add a promo code" type="text"/>
+<button class="text-primary font-bold text-sm">Apply</button>
+</div>
+</div>
+<!-- Sections Divider -->
+<div class="h-2 my-4 bg-stone-100 dark:bg-black/20"></div>
+<!-- Cost Breakdown -->
+<div class="px-4 flex flex-col gap-3">
+<h3 class="text-lg font-bold text-stone-900 dark:text-white">Cost Summary</h3>
+<div class="flex justify-between text-stone-600 dark:text-stone-300">
+<p>Subtotal</p>
+<p>$23.49</p>
+</div>
+<div class="flex justify-between text-stone-600 dark:text-stone-300">
+<p>Delivery Fee</p>
+<p>$5.00</p>
+</div>
+<div class="flex justify-between text-stone-600 dark:text-stone-300">
+<p>Taxes &amp; Fees</p>
+<p>$2.82</p>
+</div>
+<div class="h-px my-2 bg-stone-200 dark:bg-stone-800"></div>
+<div class="flex justify-between text-stone-900 dark:text-white font-bold text-lg">
+<p>Total</p>
+<p>$31.31</p>
+</div>
+</div>
+</main>
+<!-- Sticky Footer -->
+<footer class="fixed bottom-0 left-0 right-0 z-10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm border-t border-white/10 dark:border-white/10">
+<div class="p-4">
+<button class="w-full bg-primary text-background-dark font-bold text-lg py-4 px-6 rounded-lg flex items-center justify-center gap-4">
+<span>Place Order</span>
+<span>$31.31</span>
+</button>
+</div>
+</footer>
+</div>
+</body></html>

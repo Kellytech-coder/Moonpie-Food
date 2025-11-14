@@ -1,6 +1,7 @@
+// ================= CART =================
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-// ------------------ ADD TO CART -------------------
+// Add to cart
 document.querySelectorAll('.add-cart').forEach(btn => {
     btn.addEventListener('click', () => {
         cart.push({
@@ -10,21 +11,19 @@ document.querySelectorAll('.add-cart').forEach(btn => {
 
         localStorage.setItem("cart", JSON.stringify(cart));
         updateCartCount();
-        alert(btn.dataset.name + " added to cart!");
+        alert(`${btn.dataset.name} added to cart!`);
     });
 });
 
-// Update cart count (works everywhere)
+// Update cart count
 function updateCartCount() {
     const count = document.getElementById("cart-count");
     if (count) count.textContent = cart.length;
 }
 updateCartCount();
 
-
-// ------------------ CART PAGE ----------------------
+// Cart page
 const cartTable = document.querySelector("#cartTable tbody");
-
 if (cartTable) {
     function loadCart() {
         cartTable.innerHTML = "";
@@ -32,7 +31,6 @@ if (cartTable) {
 
         cart.forEach((item, index) => {
             total += item.price;
-
             cartTable.innerHTML += `
                 <tr>
                     <td>${item.name}</td>
@@ -58,10 +56,8 @@ if (cartTable) {
     });
 }
 
-
-// ------------------ DARK MODE -----------------------
+// ================= DARK MODE =================
 const toggle = document.getElementById("darkToggle");
-
 if (toggle) {
     toggle.addEventListener("click", () => {
         document.body.classList.toggle("dark");
@@ -69,8 +65,7 @@ if (toggle) {
     });
 }
 
-
-// ------------------ SEARCH BAR (SAFE) -----------------------
+// ================= SEARCH =================
 const searchBtn = document.getElementById("searchBtn");
 const searchInput = document.getElementById("searchBar");
 
@@ -85,8 +80,7 @@ if (searchBtn && searchInput) {
     });
 }
 
-
-// ------------------ CHECKOUT -------------------------
+// ================= CHECKOUT =================
 async function checkout(total) {
     try {
         const res = await fetch("http://localhost:5000/api/payment", {
@@ -103,67 +97,91 @@ async function checkout(total) {
         console.error(error);
     }
 }
-// SELECT ELEMENTS
+
+// ================= LOGIN =================
 const emailInput = document.getElementById("email");
 const passwordInput = document.getElementById("password");
 const togglePassword = document.getElementById("togglePassword");
 const loginBtn = document.getElementById("loginBtn");
 const rememberMe = document.getElementById("rememberMe");
 
-// 🔵 Show / Hide Password
-togglePassword.addEventListener("click", () => {
-    if (passwordInput.type === "password") {
-        passwordInput.type = "text";
-        togglePassword.textContent = "👁️"; // icon when visible
-    } else {
-        passwordInput.type = "password";
-        togglePassword.textContent = "⚪"; // icon when hidden
+// Show / hide password
+if (togglePassword && passwordInput) {
+    togglePassword.addEventListener("click", () => {
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            togglePassword.textContent = "👁️";
+        } else {
+            passwordInput.type = "password";
+            togglePassword.textContent = "⚪";
+        }
+    });
+}
+
+// Handle login
+if (loginBtn) {
+    loginBtn.addEventListener("click", () => {
+        const email = emailInput.value.trim();
+        const password = passwordInput.value.trim();
+
+        if (email === "" || password === "") {
+            alert("Please fill in all fields.");
+            return;
+        }
+
+        // Admin login
+        if (email === "admin@gmail.com" && password === "123456") {
+            localStorage.setItem("role", "admin");
+            window.location.href = "admin/admin-dashboard.html";
+            return;
+        }
+
+        // Normal login
+        alert("Login successful!");
+        if (rememberMe.checked) {
+            localStorage.setItem("savedEmail", email);
+        } else {
+            localStorage.removeItem("savedEmail");
+        }
+        window.location.href = "index.html";
+    });
+}
+
+// ================= SETTINGS DROPDOWN & HAMBURGER MENU =================
+document.addEventListener("DOMContentLoaded", () => {
+    const settingsButton = document.querySelector("li button");
+    const settingsMenu = document.getElementById("settingsMenu");
+
+    if (settingsButton && settingsMenu) {
+        settingsButton.addEventListener("click", () => {
+            settingsMenu.style.display =
+                settingsMenu.style.display === "block" ? "none" : "block";
+        });
     }
+
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    function checkScreen() {
+        if (!menuToggle || !navLinks) return;
+        if (window.innerWidth <= 768) {
+            menuToggle.style.display = "block";
+            navLinks.style.display = "none";
+            navLinks.style.flexDirection = "column";
+        } else {
+            menuToggle.style.display = "none";
+            navLinks.style.display = "flex";
+            navLinks.style.flexDirection = "row";
+        }
+    }
+
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener("click", () => {
+            navLinks.style.display =
+                navLinks.style.display === "flex" ? "none" : "flex";
+        });
+    }
+
+    window.addEventListener("resize", checkScreen);
+    checkScreen();
 });
-
-// 🔵 Handle Login
-loginBtn.addEventListener("click", () => {
-    const email = emailInput.value.trim();
-    const password = passwordInput.value.trim();
-
-    if (email === "" || password === "") {
-        alert("Please fill in all fields.");
-        return;
-    }
-
-    // SAMPLE: Accept any login for now
-    alert("Login successful!");
-
-    // SAVE LOGIN IF REMEMBER ME IS CHECKED
-    if (rememberMe.checked) {
-        localStorage.setItem("savedEmail", email);
-    } else {
-        localStorage.removeItem("savedEmail");
-    }
-
-    // 🔥 REDIRECT TO HOME PAGE AFTER SUCCESSFUL LOGIN
-    window.location.href = "index.html"; 
-});
-
-// Example admin login
-if (email === "admin@gmail.com" && password === "123456") {
-    localStorage.setItem("role", "admin");
-    window.location.href = "admin/admin-dashboard.html";
-    return;
-}
-
-if (email === "" || password === "") {
-    alert("Please fill in all fields.");
-    return;
-}
-
-// 🔐 ADMIN LOGIN
-if (email === "admin@gmail.com" && password === "123456") {
-    localStorage.setItem("role", "admin");
-    window.location.href = "admin/admin-dashboard.html";
-    return;
-}
-
-// ✅ Normal user login
-alert("Login successful!");
-window.location.href = "index.html";

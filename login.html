@@ -1,98 +1,125 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Login</title>
-</head>
 
-<body style="margin:0; font-family:Arial, sans-serif; background:#d9e4ea; display:flex; justify-content:center; align-items:center; height:100vh;">
-
-<!-- LOGIN CARD -->
-<div style="
-    width:350px;
-    background:linear-gradient(135deg,#0ca7a5,#0582c3);
-    padding:35px 30px;
-    border-radius:18px;
-    box-shadow:0 8px 25px rgba(0,0,0,0.2);
-    color:#fff;
-">
-
-    <h2 style="text-align:center; margin-bottom:25px; font-size:28px;">Log in</h2>
-
-    <!-- EMAIL -->
-    <div style="margin-bottom:20px;">
-        <label style="font-size:14px;">Email address</label>
-        <div style="display:flex; align-items:center; border-bottom:1px solid rgba(255,255,255,0.7); padding:8px 0; gap:10px;">
-            <span style="font-size:18px;">📧</span>
-
-            <!-- ADDED ID -->
-            <input id="email" type="email" placeholder="Email address" style="
-                background:transparent;
-                border:none;
-                outline:none;
-                color:#fff;
-                font-size:15px;
-                width:100%;
-            ">
-
-            <span style="font-size:18px;">✔️</span>
-        </div>
-    </div>
-
-    <!-- PASSWORD -->
-    <div style="margin-bottom:20px;">
-        <label style="font-size:14px;">Password</label>
-        <div style="display:flex; align-items:center; border-bottom:1px solid rgba(255,255,255,0.7); padding:8px 0; gap:10px;">
-            <span style="font-size:18px;">🔒</span>
-
-            <!-- ADDED ID -->
-            <input id="password" type="password" placeholder="Password" style="
-                background:transparent;
-                border:none;
-                outline:none;
-                color:#fff;
-                font-size:15px;
-                width:100%;
-            ">
-
-            <span style="font-size:14px; cursor:pointer;">Forgot?</span>
-
-            <!-- ADDED ID FOR PASSWORD TOGGLE -->
-            <span id="togglePassword" style="font-size:18px; cursor:pointer;">⚪</span>
-        </div>
-    </div>
-
-    <!-- BUTTON -->
-    <button id="loginBtn" style="
-        width:100%;
-        margin-top:25px;
-        padding:12px 15px;
-        font-size:16px;
-        border:none;
-        border-radius:10px;
-        cursor:pointer;
-        background:linear-gradient(135deg,#b92bff,#6b4bff);
-        color:#fff;
-    ">
-        Login to your account
-    </button>
-
-    <!-- FOOTER -->
-    <div style="display:flex; justify-content:space-between; margin-top:25px; font-size:14px;">
-        <span style="display:flex; align-items:center; gap:6px;">
-            <!-- ADDED CHECKBOX -->
-            <input id="rememberMe" type="checkbox" style="margin-right:6px;">
-            Remember me
-        </span>
-
-        <span>New here? <a href="#" style="color:#fff; font-weight:bold; text-decoration:none;">Sign in!</a></span>
-    </div>
-
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Food Delivery App - Login/Sign Up</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ee9d2b",
+                        "background-light": "#f8f7f6",
+                        "background-dark": "#181511",
+                        "foreground-light": "#1f2937",
+                        "foreground-dark": "#f9fafb",
+                        "subtle-light": "#e5e7eb",
+                        "subtle-dark": "#374151",
+                        "field-light": "#ffffff",
+                        "field-dark": "#27221c",
+                        "field-border-light": "#d1d5db",
+                        "field-border-dark": "#54493b",
+                        "text-light": "#333333",
+                        "text-dark": "#ffffff",
+                        "text-secondary-light": "#6b7280",
+                        "text-secondary-dark": "#b9ad9d"
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "1.5rem",
+                        "xl": "2rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display bg-background-light dark:bg-background-dark">
+<div class="relative flex min-h-screen w-full flex-col items-center justify-center dark group/design-root overflow-x-hidden p-4">
+<div class="w-full max-w-md mx-auto">
+<!-- Header Logo and Text -->
+<div class="flex flex-col items-center justify-center mb-6">
+<div class="p-4 bg-primary/20 rounded-full mb-4">
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="restaurant_menu">restaurant_menu</span>
 </div>
-
-<!-- JS FILE -->
-<script src="script.js"></script>
-
-</body>
-</html>
+<h1 class="text-text-light dark:text-text-dark tracking-light text-[32px] font-bold leading-tight text-center">Welcome back!</h1>
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-base font-normal leading-normal text-center pt-1">Find your next delicious meal.</p>
+</div>
+<!-- Segmented Control -->
+<div class="flex px-0 py-3">
+<div class="flex h-12 flex-1 items-center justify-center rounded-full bg-subtle-light dark:bg-field-dark p-1">
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-full px-2 has-[:checked]:bg-background-light dark:has-[:checked]:bg-background-dark has-[:checked]:shadow-[0_1px_3px_rgba(0,0,0,0.1)] has-[:checked]:text-text-light dark:has-[:checked]:text-text-dark text-text-secondary-light dark:text-text-secondary-dark text-sm font-medium leading-normal transition-colors duration-200">
+<span class="truncate">Log In</span>
+<input checked="" class="invisible w-0" name="auth-toggle" type="radio" value="Log In"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-full px-2 has-[:checked]:bg-background-light dark:has-[:checked]:bg-background-dark has-[:checked]:shadow-[0_1px_3px_rgba(0,0,0,0.1)] has-[:checked]:text-text-light dark:has-[:checked]:text-text-dark text-text-secondary-light dark:text-text-secondary-dark text-sm font-medium leading-normal transition-colors duration-200">
+<span class="truncate">Sign Up</span>
+<input class="invisible w-0" name="auth-toggle" type="radio" value="Sign Up"/>
+</label>
+</div>
+</div>
+<!-- Form Fields -->
+<div class="flex w-full flex-col gap-4 py-3">
+<label class="flex flex-col w-full">
+<p class="text-text-light dark:text-text-dark text-base font-medium leading-normal pb-2">Email</p>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-text-light dark:text-text-dark focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-field-border-light dark:border-field-border-dark bg-field-light dark:bg-field-dark focus:border-primary h-14 placeholder:text-text-secondary-light dark:placeholder:text-text-secondary-dark p-[15px] text-base font-normal leading-normal" placeholder="Enter your email" type="email" value=""/>
+</label>
+<label class="flex flex-col w-full">
+<p class="text-text-light dark:text-text-dark text-base font-medium leading-normal pb-2">Password</p>
+<div class="relative flex items-center">
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-text-light dark:text-text-dark focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-field-border-light dark:border-field-border-dark bg-field-light dark:bg-field-dark focus:border-primary h-14 placeholder:text-text-secondary-light dark:placeholder:text-text-secondary-dark p-[15px] pr-12 text-base font-normal leading-normal" placeholder="Enter your password" type="password" value=""/>
+<button aria-label="Toggle password visibility" class="absolute right-4 text-text-secondary-light dark:text-text-secondary-dark">
+<span class="material-symbols-outlined" data-icon="visibility_off">visibility_off</span>
+</button>
+</div>
+</label>
+<div class="flex justify-end">
+<a class="text-primary text-sm font-medium hover:underline" href="#">Forgot Password?</a>
+</div>
+</div>
+<!-- Primary CTA Button -->
+<div class="w-full pt-4 pb-6">
+<button class="flex h-14 w-full items-center justify-center rounded-full bg-primary px-6 text-base font-bold text-background-dark shadow-sm transition-transform active:scale-95">Log In</button>
+</div>
+<!-- Divider -->
+<div class="flex items-center gap-4 py-3">
+<hr class="flex-grow border-t border-subtle-light dark:border-subtle-dark"/>
+<span class="text-sm font-medium text-text-secondary-light dark:text-text-secondary-dark">OR</span>
+<hr class="flex-grow border-t border-subtle-light dark:border-subtle-dark"/>
+</div>
+<!-- Social Login Buttons -->
+<div class="flex w-full flex-col gap-4 py-3">
+<button class="flex h-14 w-full items-center justify-center gap-3 rounded-full border border-field-border-light dark:border-field-border-dark bg-field-light dark:bg-field-dark px-6 text-base font-medium text-text-light dark:text-text-dark transition-transform active:scale-95">
+<img alt="Google logo" class="h-6 w-6" data-alt="Google logo icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCo2eJ30RFGgAf-Ams1CJjkqcbmHCny9FhmbMws191L5gv4D1YxSlNwKo8QK3TvmOQogQjqLQM41RGih64bh1OkQ6dD2DUvvK00Nh84FVVtq3nayxuFlw4UCsI3Z-B5BVjyFrtOw07kmRbhhZ3DDgF0Oe8p73biqwKXJLB5BYo1BitG6l72cc8nTUVj5Id4QCtFNiRXHYYlR84xv4VCb-oizus0dBVcBdbjuSUPjySUh1p902vyoP0q5uDnCYEZtJcgKTc51J1nCAIa"/>
+                    Continue with Google
+                </button>
+<button class="flex h-14 w-full items-center justify-center gap-3 rounded-full border border-field-border-light dark:border-field-border-dark bg-field-light dark:bg-field-dark px-6 text-base font-medium text-text-light dark:text-text-dark transition-transform active:scale-95">
+<img alt="Apple logo" class="h-6 w-6 dark:invert" data-alt="Apple logo icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzILt2rS4HToahC9idUTpMtp5zcv4l2l2J32ShDa7S2x5LTEBUusjFMyABEznAIz5NVHKZ7quaQaDLbHi1wIFi6W3u0cWJh0AY-5uD2SkPPc1852ayDQxk2ounwKO88YNiS_i3uVe798y8oGM4wlic9MGP5YOb-DbqYijPlrYUweaxX31Q2YIGSOpEV5SfhSkHQpVU16n82vj57ZqqBR6IIBWc6rBwJqi42m36DKUo_rp6iY3pdeTY2wMxPpWvUZ3gIIPHwnlph1AT"/>
+                    Continue with Apple
+                </button>
+</div>
+<!-- Footer Links -->
+<div class="pt-8 text-center">
+<p class="text-xs text-text-secondary-light dark:text-text-secondary-dark">
+                    By continuing, you agree to our <a class="font-medium text-primary hover:underline" href="#">Terms of Service</a> and <a class="font-medium text-primary hover:underline" href="#">Privacy Policy</a>.
+                </p>
+</div>
+</div>
+</div>
+</body></html>

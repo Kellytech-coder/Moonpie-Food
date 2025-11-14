@@ -1,21 +1,160 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>Order Tracking</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
 
-<h2>Your Order Status</h2>
-<p>Status: <span id="order-status">Loading...</span></p>
-
-<div class="tracking-bar">
-    <div class="step" id="step1">Placed</div>
-    <div class="step" id="step2">Preparing</div>
-    <div class="step" id="step3">Out for delivery</div>
-    <div class="step" id="step4">Delivered</div>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Order Tracking</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ee9d2b",
+                        "background-light": "#f8f7f6",
+                        "background-dark": "#221a10",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col">
+<!-- Top App Bar -->
+<div class="flex items-center p-4 bg-background-light dark:bg-background-dark sticky top-0 z-10">
+<button class="flex size-10 shrink-0 items-center justify-center rounded-full text-zinc-900 dark:text-zinc-200">
+<span class="material-symbols-outlined text-2xl">close</span>
+</button>
+<h2 class="flex-1 text-center text-lg font-bold leading-tight tracking-[-0.015em] text-zinc-900 dark:text-white">Your order is on the way!</h2>
+<button class="flex size-10 items-center justify-center rounded-full text-zinc-900 dark:text-zinc-200">
+<span class="material-symbols-outlined text-2xl">help_outline</span>
+</button>
 </div>
-
-<script src="script.js"></script>
-</body>
-</html>
+<div class="flex-grow px-4 pb-24">
+<!-- Success Indicator and Headline -->
+<div class="flex flex-col items-center justify-center gap-2 pt-4 pb-8 text-center">
+<div class="flex size-16 items-center justify-center rounded-full bg-green-500/20 text-green-500">
+<span class="material-symbols-outlined text-4xl">check</span>
+</div>
+<h1 class="text-zinc-900 dark:text-white text-[32px] font-bold leading-tight tracking-tight">Your food is coming!</h1>
+<p class="text-zinc-500 dark:text-zinc-400 text-base font-normal leading-normal">From The Gourmet Kitchen</p>
+</div>
+<!-- Map View -->
+<div class="w-full h-64 bg-center bg-no-repeat bg-cover rounded-xl object-cover mb-6" data-alt="A map showing the route from the restaurant to the delivery address with a pin for the driver's location." data-location="San Francisco" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCDnJbakjvDC4sLvQJAZs_P9WEGtQNLg8JoNEFnGgjcbciT1SEM_MeMeO9zuteykpCWABB6K5UylwM_3aPFbfx8wXFq5vmUnoc5yE8zHYHxDw9-i1W9efq9nmDFbw2qgzQLObZXjMtJD8FYsLoDepesypyD3DCp20AX0GKZ7N-Yta9UMaptFjwmV2b-jRKD6f2HDklLSVVjaGxMo2wCcaadl9yUfrLxo6orUFRno2O4O4PUIifqP9H7bm-8IZkFHxghxhYF_U-EEdgM");'></div>
+<!-- ETA Timer Card -->
+<div class="rounded-lg bg-white/5 dark:bg-zinc-900/50 p-6 mb-6">
+<p class="text-zinc-500 dark:text-zinc-400 text-base font-normal leading-normal pb-3 text-center">Estimated Arrival</p>
+<div class="flex justify-center items-end gap-1">
+<p class="text-zinc-900 dark:text-white text-5xl font-bold leading-none tracking-tighter">25</p>
+<p class="text-zinc-500 dark:text-zinc-400 text-xl font-medium pb-1">min</p>
+</div>
+</div>
+<!-- Progress Tracker -->
+<div class="mb-8">
+<h3 class="text-zinc-900 dark:text-white text-lg font-bold mb-4">Delivery Status</h3>
+<div class="flex flex-col gap-4">
+<!-- Step 1: Order Placed (Completed) -->
+<div class="flex items-center gap-4">
+<div class="flex size-8 shrink-0 items-center justify-center rounded-full bg-primary text-white">
+<span class="material-symbols-outlined text-base">check</span>
+</div>
+<p class="text-zinc-900 dark:text-white font-medium">Order Placed</p>
+</div>
+<!-- Connector Line -->
+<div class="h-6 w-px bg-primary/50 ml-4"></div>
+<!-- Step 2: In the Kitchen (Completed) -->
+<div class="flex items-center gap-4">
+<div class="flex size-8 shrink-0 items-center justify-center rounded-full bg-primary text-white">
+<span class="material-symbols-outlined text-base">check</span>
+</div>
+<p class="text-zinc-900 dark:text-white font-medium">In the Kitchen</p>
+</div>
+<!-- Connector Line -->
+<div class="h-6 w-px bg-primary/50 ml-4"></div>
+<!-- Step 3: Out for Delivery (Active) -->
+<div class="flex items-center gap-4">
+<div class="flex size-8 shrink-0 items-center justify-center rounded-full bg-primary ring-4 ring-primary/20 text-white">
+<span class="material-symbols-outlined text-base">delivery_dining</span>
+</div>
+<div class="flex flex-col">
+<p class="text-primary font-bold">Out for Delivery</p>
+<p class="text-sm text-zinc-500 dark:text-zinc-400">Your driver, Alex, is on the way.</p>
+</div>
+</div>
+<!-- Connector Line -->
+<div class="h-6 w-px bg-zinc-200 dark:bg-zinc-700 ml-4"></div>
+<!-- Step 4: Arriving Soon (Upcoming) -->
+<div class="flex items-center gap-4 opacity-50">
+<div class="flex size-8 shrink-0 items-center justify-center rounded-full bg-zinc-200 dark:bg-zinc-800 text-zinc-500 dark:text-zinc-400">
+<span class="material-symbols-outlined text-base">pin_drop</span>
+</div>
+<p class="text-zinc-500 dark:text-zinc-400 font-medium">Arriving Soon</p>
+</div>
+</div>
+</div>
+<!-- Order Summary Accordion -->
+<div>
+<details class="group rounded-lg bg-white/5 dark:bg-zinc-900/50">
+<summary class="flex cursor-pointer list-none items-center justify-between p-4 font-bold text-zinc-900 dark:text-white">
+<span>Order Summary (ID: #F8B452)</span>
+<span class="transition-transform duration-300 group-open:rotate-180">
+<span class="material-symbols-outlined">expand_more</span>
+</span>
+</summary>
+<div class="border-t border-zinc-200 dark:border-zinc-800 p-4 text-zinc-600 dark:text-zinc-300">
+<div class="space-y-3">
+<div class="flex justify-between">
+<span>1x Classic Burger</span>
+<span>$12.50</span>
+</div>
+<div class="flex justify-between">
+<span>1x Fries</span>
+<span>$4.00</span>
+</div>
+<div class="flex justify-between">
+<span>Delivery Fee</span>
+<span>$2.99</span>
+</div>
+<div class="flex justify-between pt-3 border-t border-zinc-200 dark:border-zinc-800 font-bold text-zinc-900 dark:text-white">
+<span>Total</span>
+<span>$19.49</span>
+</div>
+</div>
+</div>
+</details>
+</div>
+</div>
+<!-- Sticky Action Buttons Footer -->
+<div class="fixed bottom-0 left-0 right-0 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm p-4 border-t border-zinc-200 dark:border-zinc-800">
+<div class="flex items-center gap-4">
+<button class="flex-1 rounded-full bg-primary/20 py-3.5 px-6 text-center font-bold text-primary dark:text-primary">View Receipt</button>
+<button class="flex-1 rounded-full bg-primary py-3.5 px-6 text-center font-bold text-background-dark">Contact Driver</button>
+</div>
+</div>
+</div>
+</body></html>

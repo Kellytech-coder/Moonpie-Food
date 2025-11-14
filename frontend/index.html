@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoonpieFood</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <h1 class="logo">MoonpieFood</h1>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="restaurants.html">Restaurants</a></li>
+            <li><a href="cart.html">Cart (<span id="cart-count">0</span>)</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><button id="darkToggle">🌙</button></li>
+        </ul>
+    </nav>
+
+    <div class="hero">
+    <h2>Delicious Meals Delivered Fast</h2>
+    <p>Real food, real taste, real quick.</p>
+
+    <div class="search-box">
+        <input type="text" id="searchBar" placeholder="Search for food...">
+        <button id="searchBtn" class="btn">Search</button>
+    </div>
+</div>
+
+</header>
+
+<section class="menu">
+    <h2>Popular Dishes</h2>
+
+    <div class="menu-container">
+
+        <div class="menu-item">
+            <img src="https://source.unsplash.com/800x600/?burger" alt="">
+            <h3>Cheese Burger</h3>
+            <p>$8.99</p>
+            <button class="btn add-cart" data-name="Cheese Burger" data-price="8.99">
+                Add to Cart
+            </button>
+        </div>
+
+        <div class="menu-item">
+            <img src="https://source.unsplash.com/800x600/?pizza" alt="">
+            <h3>Veggie Pizza</h3>
+            <p>$12.49</p>
+            <button class="btn add-cart" data-name="Veggie Pizza" data-price="12.49">
+                Add to Cart
+            </button>
+        </div>
+
+        <div class="menu-item">
+            <img src="https://source.unsplash.com/800x600/?pasta" alt="">
+            <h3>Italian Pasta</h3>
+            <p>$10.50</p>
+            <button class="btn add-cart" data-name="Italian Pasta" data-price="10.50">
+                Add to Cart
+            </button>
+        </div>
+
+    </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>

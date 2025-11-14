@@ -7,33 +7,64 @@
 </head>
 <body style="margin:0; font-family:Arial, sans-serif; background:#f4f4f4;">
 
-<header style="width:100%; background:#fff; box-shadow:0 2px 4px rgba(0,0,0,0.1);">
+<header style="width:100%; background:#fff; box-shadow:0 2px 4px rgba(0,0,0,0.1); position:sticky; top:0; z-index:100;">
     
     <!-- NAVBAR -->
-    <nav style="display:flex; justify-content:space-between; align-items:center; padding:20px;">
-        <h1 style="margin:0; font-size:24px; color:#333;">MoonpieFood</h1>
+    <nav style="
+        display:flex; 
+        justify-content:space-between; 
+        align-items:center; 
+        padding:15px 10px; 
+        flex-wrap:wrap;
+    ">
+        <h1 style="margin:0; font-size:22px; color:#333;">MoonpieFood</h1>
 
-        <ul style="list-style:none; display:flex; gap:20px; margin:0; padding:0;">
-            <li><a href="index.html" style="text-decoration:none; color:#333; font-weight:bold;">Home</a></li>
-            <li><a href="restuarants.html" style="text-decoration:none; color:#333; font-weight:bold;">Restaurants</a></li>
-            <li><a href="cart.html" style="text-decoration:none; color:#333; font-weight:bold;">Cart (<span id="cart-count">0</span>)</a></li>
-            <li><a href="login.html" style="text-decoration:none; color:#333; font-weight:bold;">Login</a></li>
+        <ul style="
+            list-style:none; 
+            display:flex; 
+            gap:15px; 
+            margin:10px 0 0 0; 
+            padding:0; 
+            flex-wrap:wrap;
+            justify-content:center;
+            width:100%;
+        ">
+            <li><a href="index.html" style="text-decoration:none; color:#333; font-size:15px; font-weight:bold;">Home</a></li>
+            <li><a href="restuarants.html" style="text-decoration:none; color:#333; font-size:15px; font-weight:bold;">Restaurants</a></li>
+            <li><a href="cart.html" style="text-decoration:none; color:#333; font-size:15px; font-weight:bold;">Cart (<span id="cart-count">0</span>)</a></li>
+            <li><a href="login.html" style="text-decoration:none; color:#333; font-size:15px; font-weight:bold;">Login</a></li>
             <li><button id="darkToggle" style="padding:6px 10px; font-size:16px; cursor:pointer;">🌙</button></li>
         </ul>
     </nav>
 
     <!-- HERO SECTION -->
-    <div style="text-align:center; padding:60px 20px; background:#ffcc00;">
-        <h2 style="font-size:32px; margin-bottom:10px;">Delicious Meals Delivered Fast</h2>
-        <p style="font-size:18px; margin-bottom:20px;">Real food, real taste, real quick.</p>
+    <div style="text-align:center; padding:40px 15px; background:#ffcc00;">
+        <h2 style="font-size:28px; margin-bottom:10px;">Delicious Meals Delivered Fast</h2>
+        <p style="font-size:16px; margin-bottom:20px;">Real food, real taste, real quick.</p>
 
-        <div style="display:flex; justify-content:center; gap:10px;">
-            <input type="text" id="searchBar" 
+        <div style="display:flex; justify-content:center; flex-wrap:wrap; gap:10px;">
+            <input 
+                type="text" 
+                id="searchBar" 
                 placeholder="Search for food..."
-                style="padding:12px; width:250px; border:1px solid #ccc; border-radius:4px;">
+                style="
+                    padding:12px; 
+                    width:80%; 
+                    max-width:250px; 
+                    border:1px solid #ccc; 
+                    border-radius:4px;
+                "
+            >
             
             <button id="searchBtn" 
-                style="padding:12px 20px; background:#333; color:#fff; border:none; border-radius:4px; cursor:pointer;">
+                style="
+                    padding:12px 20px; 
+                    background:#333; 
+                    color:#fff; 
+                    border:none; 
+                    border-radius:4px; 
+                    cursor:pointer;
+                ">
                 Search
             </button>
         </div>
@@ -42,46 +73,103 @@
 </header>
 
 <!-- FOOD MENU -->
-<section style="padding:40px 20px;">
-    <h2 style="text-align:center; font-size:28px; margin-bottom:30px;">Popular Dishes</h2>
+<section style="padding:30px 10px;">
+    <h2 style="text-align:center; font-size:24px; margin-bottom:25px;">Popular Dishes</h2>
 
-    <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;">
+    <div style="
+        display:flex; 
+        justify-content:center; 
+        gap:20px; 
+        flex-wrap:wrap;
+    ">
 
-        <!-- ITEM 1 -->
-        <div style="background:#fff; padding:20px; border-radius:8px; width:250px; 
-                     box-shadow:0 4px 8px rgba(0,0,0,0.1); text-align:center;">
+        <!-- ITEM CARD TEMPLATE -->
+        <div style="
+            background:#fff; 
+            padding:15px; 
+            border-radius:8px; 
+            width:90%; 
+            max-width:260px;
+            box-shadow:0 4px 8px rgba(0,0,0,0.1); 
+            text-align:center;
+        ">
             <img src="https://source.unsplash.com/800x600/?burger" alt="" 
                  style="width:100%; border-radius:6px;">
-            <h3 style="margin:15px 0 5px;">Cheese Burger</h3>
-            <p style="font-size:18px; margin:5px 0;">$8.99</p>
-            <button class="add-cart" data-name="Cheese Burger" data-price="8.99"
-                    style="margin-top:10px; padding:10px 20px; background:#333; color:#fff; border:none; border-radius:5px; cursor:pointer;">
+            <h3 style="margin:15px 0 5px; font-size:18px;">Cheese Burger</h3>
+            <p style="font-size:16px; margin:5px 0;">$8.99</p>
+            <button 
+                class="add-cart" 
+                data-name="Cheese Burger" 
+                data-price="8.99"
+                style="
+                    margin-top:10px; 
+                    padding:10px 20px; 
+                    background:#333; 
+                    color:#fff; 
+                    border:none; 
+                    border-radius:5px; 
+                    cursor:pointer;
+                ">
                 Add to Cart
             </button>
         </div>
 
-        <!-- ITEM 2 -->
-        <div style="background:#fff; padding:20px; border-radius:8px; width:250px; 
-                     box-shadow:0 4px 8px rgba(0,0,0,0.1); text-align:center;">
+        <div style="
+            background:#fff; 
+            padding:15px; 
+            border-radius:8px; 
+            width:90%; 
+            max-width:260px;
+            box-shadow:0 4px 8px rgba(0,0,0,0.1); 
+            text-align:center;
+        ">
             <img src="https://source.unsplash.com/800x600/?pizza" alt=""
                  style="width:100%; border-radius:6px;">
-            <h3 style="margin:15px 0 5px;">Veggie Pizza</h3>
-            <p style="font-size:18px; margin:5px 0;">$12.49</p>
-            <button class="add-cart" data-name="Veggie Pizza" data-price="12.49"
-                    style="margin-top:10px; padding:10px 20px; background:#333; color:#fff; border:none; border-radius:5px; cursor:pointer;">
+            <h3 style="margin:15px 0 5px; font-size:18px;">Veggie Pizza</h3>
+            <p style="font-size:16px; margin:5px 0;">$12.49</p>
+            <button 
+                class="add-cart" 
+                data-name="Veggie Pizza" 
+                data-price="12.49"
+                style="
+                    margin-top:10px; 
+                    padding:10px 20px; 
+                    background:#333; 
+                    color:#fff; 
+                    border:none; 
+                    border-radius:5px; 
+                    cursor:pointer;
+                ">
                 Add to Cart
             </button>
         </div>
 
-        <!-- ITEM 3 -->
-        <div style="background:#fff; padding:20px; border-radius:8px; width:250px; 
-                     box-shadow:0 4px 8px rgba(0,0,0,0.1); text-align:center;">
+        <div style="
+            background:#fff; 
+            padding:15px; 
+            border-radius:8px; 
+            width:90%; 
+            max-width:260px;
+            box-shadow:0 4px 8px rgba(0,0,0,0.1); 
+            text-align:center;
+        ">
             <img src="https://source.unsplash.com/800x600/?pasta" alt=""
                  style="width:100%; border-radius:6px;">
-            <h3 style="margin:15px 0 5px;">Italian Pasta</h3>
-            <p style="font-size:18px; margin:5px 0;">$10.50</p>
-            <button class="add-cart" data-name="Italian Pasta" data-price="10.50"
-                    style="margin-top:10px; padding:10px 20px; background:#333; color:#fff; border:none; border-radius:5px; cursor:pointer;">
+            <h3 style="margin:15px 0 5px; font-size:18px;">Italian Pasta</h3>
+            <p style="font-size:16px; margin:5px 0;">$10.50</p>
+            <button 
+                class="add-cart" 
+                data-name="Italian Pasta" 
+                data-price="10.50"
+                style="
+                    margin-top:10px; 
+                    padding:10px 20px; 
+                    background:#333; 
+                    color:#fff; 
+                    border:none; 
+                    border-radius:5px; 
+                    cursor:pointer;
+                ">
                 Add to Cart
             </button>
         </div>

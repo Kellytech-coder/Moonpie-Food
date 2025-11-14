@@ -3,42 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restaurants</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Restaurants - MoonpieFood</title>
 </head>
-<body>
+<body style="margin:0; font-family:Arial, sans-serif; background:#f4f4f4;">
 
-<nav class="navbar">
-    <h1 class="logo">MoonpieFood</h1>
-    <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="restaurants.html">Restaurants</a></li>
-        <li><a href="login.html">Login</a></li>
-        <li><a href="order.html">Order</a></li>
+<!-- NAVBAR -->
+<nav style="
+    width:100%;
+    background:#fff;
+    box-shadow:0 2px 4px rgba(0,0,0,0.1);
+    padding:15px 10px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+">
+    <h1 style="margin:0; font-size:24px; color:#333;">MoonpieFood</h1>
+
+    <ul style="
+        list-style:none;
+        display:flex;
+        gap:15px;
+        margin:10px 0 0 0;
+        padding:0;
+        flex-wrap:wrap;
+        justify-content:center;
+        width:100%;
+    ">
+        <li><a href="index.html" style="text-decoration:none; color:#333; font-weight:bold; font-size:15px;">Home</a></li>
+        <li><a href="restaurants.html" style="text-decoration:none; color:#333; font-weight:bold; font-size:15px;">Restaurants</a></li>
+        <li><a href="login.html" style="text-decoration:none; color:#333; font-weight:bold; font-size:15px;">Login</a></li>
+        <li><a href="order.html" style="text-decoration:none; color:#333; font-weight:bold; font-size:15px;">Order</a></li>
     </ul>
 </nav>
 
-<section class="menu">
-    <h2>Restaurants Near You</h2>
+<!-- MAIN SECTION -->
+<section style="padding:40px 20px;">
+    <h2 style="text-align:center; font-size:28px; margin-bottom:30px; color:#333;">
+        Restaurants Near You
+    </h2>
 
-    <div class="menu-container">
+    <div style="
+        display:flex;
+        justify-content:center;
+        gap:20px;
+        flex-wrap:wrap;
+    ">
 
-        <div class="menu-item">
-            <img src="https://via.placeholder.com/200">
-            <h3>Pizza Palace</h3>
-            <p>Best Italian Pizzas</p>
+        <!-- RESTAURANT CARD 1 -->
+        <div style="
+            background:#fff;
+            width:90%;
+            max-width:260px;
+            padding:20px;
+            border-radius:8px;
+            text-align:center;
+            box-shadow:0 4px 8px rgba(0,0,0,0.1);
+        ">
+            <img src="https://via.placeholder.com/200"
+                 style="width:100%; border-radius:6px;">
+            <h3 style="margin:15px 0 10px; font-size:20px; color:#333;">Pizza Palace</h3>
+            <p style="font-size:16px; color:#666;">Best Italian Pizzas</p>
         </div>
 
-        <div class="menu-item">
-            <img src="https://via.placeholder.com/200">
-            <h3>Burger House</h3>
-            <p>Delicious Burgers</p>
+        <!-- RESTAURANT CARD 2 -->
+        <div style="
+            background:#fff;
+            width:90%;
+            max-width:260px;
+            padding:20px;
+            border-radius:8px;
+            text-align:center;
+            box-shadow:0 4px 8px rgba(0,0,0,0.1);
+        ">
+            <img src="https://via.placeholder.com/200"
+                 style="width:100%; border-radius:6px;">
+            <h3 style="margin:15px 0 10px; font-size:20px; color:#333;">Burger House</h3>
+            <p style="font-size:16px; color:#666;">Delicious Burgers</p>
         </div>
 
-        <div class="menu-item">
-            <img src="https://via.placeholder.com/200">
-            <h3>Spice Curry</h3>
-            <p>Authentic Indian Food</p>
+        <!-- RESTAURANT CARD 3 -->
+        <div style="
+            background:#fff;
+            width:90%;
+            max-width:260px;
+            padding:20px;
+            border-radius:8px;
+            text-align:center;
+            box-shadow:0 4px 8px rgba(0,0,0,0.1);
+        ">
+            <img src="https://via.placeholder.com/200"
+                 style="width:100%; border-radius:6px;">
+            <h3 style="margin:15px 0 10px; font-size:20px; color:#333;">Spice Curry</h3>
+            <p style="font-size:16px; color:#666;">Authentic Indian Food</p>
         </div>
 
     </div>

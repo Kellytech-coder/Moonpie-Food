@@ -1,0 +1,11 @@
+[[redirects]]
+  from = "/cart"
+  to = "/cart.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/restaurant"
+  to = "/restaurant.html"
+  status = 200
+  force = true

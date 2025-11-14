@@ -1,29 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login / Signup</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login</title>
 </head>
-<body>
 
-<div class="form-container">
-    <h2>Login</h2>
-    <form>
-        <input type="email" placeholder="Email">
-        <input type="password" placeholder="Password">
-        <button class="btn">Login</button>
-    </form>
+<body style="margin:0; font-family:Arial, sans-serif; background:#d9e4ea; display:flex; justify-content:center; align-items:center; height:100vh;">
 
-    <h2>Create Account</h2>
-    <form>
-        <input type="text" placeholder="Full Name">
-        <input type="email" placeholder="Email">
-        <input type="password" placeholder="Password">
-        <button class="btn">Signup</button>
-    </form>
+<!-- LOGIN CARD -->
+<div style="
+    width:350px;
+    background:linear-gradient(135deg,#0ca7a5,#0582c3);
+    padding:35px 30px;
+    border-radius:18px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.2);
+    color:#fff;
+">
+
+    <h2 style="text-align:center; margin-bottom:25px; font-size:28px;">Log in</h2>
+
+    <!-- EMAIL -->
+    <div style="margin-bottom:20px;">
+        <label style="font-size:14px;">Email address</label>
+        <div style="display:flex; align-items:center; border-bottom:1px solid rgba(255,255,255,0.7); padding:8px 0; gap:10px;">
+            <span style="font-size:18px;">📧</span>
+
+            <!-- ADDED ID -->
+            <input id="email" type="email" placeholder="Email address" style="
+                background:transparent;
+                border:none;
+                outline:none;
+                color:#fff;
+                font-size:15px;
+                width:100%;
+            ">
+
+            <span style="font-size:18px;">✔️</span>
+        </div>
+    </div>
+
+    <!-- PASSWORD -->
+    <div style="margin-bottom:20px;">
+        <label style="font-size:14px;">Password</label>
+        <div style="display:flex; align-items:center; border-bottom:1px solid rgba(255,255,255,0.7); padding:8px 0; gap:10px;">
+            <span style="font-size:18px;">🔒</span>
+
+            <!-- ADDED ID -->
+            <input id="password" type="password" placeholder="Password" style="
+                background:transparent;
+                border:none;
+                outline:none;
+                color:#fff;
+                font-size:15px;
+                width:100%;
+            ">
+
+            <span style="font-size:14px; cursor:pointer;">Forgot?</span>
+
+            <!-- ADDED ID FOR PASSWORD TOGGLE -->
+            <span id="togglePassword" style="font-size:18px; cursor:pointer;">⚪</span>
+        </div>
+    </div>
+
+    <!-- BUTTON -->
+    <button id="loginBtn" style="
+        width:100%;
+        margin-top:25px;
+        padding:12px 15px;
+        font-size:16px;
+        border:none;
+        border-radius:10px;
+        cursor:pointer;
+        background:linear-gradient(135deg,#b92bff,#6b4bff);
+        color:#fff;
+    ">
+        Login to your account
+    </button>
+
+    <!-- FOOTER -->
+    <div style="display:flex; justify-content:space-between; margin-top:25px; font-size:14px;">
+        <span style="display:flex; align-items:center; gap:6px;">
+            <!-- ADDED CHECKBOX -->
+            <input id="rememberMe" type="checkbox" style="margin-right:6px;">
+            Remember me
+        </span>
+
+        <span>New here? <a href="#" style="color:#fff; font-weight:bold; text-decoration:none;">Sign in!</a></span>
+    </div>
+
 </div>
+
+<!-- JS FILE -->
+<script src="script.js"></script>
 
 </body>
 </html>

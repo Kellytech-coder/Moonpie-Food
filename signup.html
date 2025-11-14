@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Signup Page</title>
+</head>
+
+<body style="
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:linear-gradient(135deg,#6f80ff,#7f50ff,#5f8bff);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+">
+
+<!-- GLASS CARD -->
+<div style="
+    width:750px;
+    max-width:95%;
+    padding:40px;
+    background:rgba(255,255,255,0.25);
+    backdrop-filter:blur(15px);
+    border-radius:20px;
+    box-shadow:0 10px 40px rgba(0,0,0,0.2);
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+">
+
+    <!-- LEFT SECTION -->
+    <div style="width:48%;">
+        <h2 style="color:#000; margin-bottom:25px; font-size:28px;">Sign Up</h2>
+
+        <div id="message" style="color:red; margin-bottom:15px;"></div>
+
+        <input id="name" type="text" placeholder="Full Name" style="
+            width:100%;
+            padding:14px;
+            margin-bottom:15px;
+            border:none;
+            border-radius:30px;
+            font-size:15px;
+            outline:none;
+        ">
+
+        <input id="email" type="email" placeholder="Email Address" style="
+            width:100%;
+            padding:14px;
+            margin-bottom:15px;
+            border:none;
+            border-radius:30px;
+            font-size:15px;
+            outline:none;
+        ">
+
+        <input id="password" type="password" placeholder="Password" style="
+            width:100%;
+            padding:14px;
+            margin-bottom:15px;
+            border:none;
+            border-radius:30px;
+            font-size:15px;
+            outline:none;
+        ">
+
+        <input id="confirm" type="password" placeholder="Confirm Password" style="
+            width:100%;
+            padding:14px;
+            border:none;
+            border-radius:30px;
+            font-size:15px;
+            outline:none;
+        ">
+    </div>
+
+    <!-- RIGHT SECTION -->
+    <div style="width:48%;">
+
+        <button onclick="submitForm()" style="
+            width:100%;
+            padding:12px;
+            background:#000;
+            color:#fff;
+            border:none;
+            border-radius:30px;
+            font-size:16px;
+            cursor:pointer;
+            margin-bottom:15px;
+        ">Sign Up</button>
+
+        <p style="font-size:14px; color:#000; margin-bottom:20px;">
+    Already have an account?
+    <a href="login.html" style="color:#000; font-weight:bold;">Log in</a>
+</p>
+
+
+        <p style="text-align:center; font-size:14px; color:#000; margin-bottom:15px;">Or</p>
+
+        <!-- GOOGLE BUTTON -->
+        <button style="
+            width:100%;
+            padding:12px;
+            border-radius:25px;
+            border:1px solid #ddd;
+            background:#fff;
+            cursor:pointer;
+            font-size:15px;
+            margin-bottom:12px;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            gap:10px;
+        ">
+            <span style="font-size:18px;">🔵</span>
+            Sign up with Google
+        </button>
+
+        <!-- FACEBOOK BUTTON -->
+        <button style="
+            width:100%;
+            padding:12px;
+            border-radius:25px;
+            border:1px solid #ddd;
+            background:#fff;
+            cursor:pointer;
+            font-size:15px;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            gap:10px;
+        ">
+            <span style="font-size:18px;">🔷</span>
+            Sign up with Facebook
+        </button>
+    </div>
+
+</div>
+
+<script>
+// SIMPLE SIGNUP VALIDATION
+function submitForm() {
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const pass = document.getElementById("password").value.trim();
+    const conf = document.getElementById("confirm").value.trim();
+    const msg = document.getElementById("message");
+
+    if(!name || !email || !pass || !conf) {
+        msg.style.color = "red";
+        msg.textContent = "All fields are required!";
+        return;
+    }
+
+    if(pass !== conf){
+        msg.style.color = "red";
+        msg.textContent = "Passwords do not match!";
+        return;
+    }
+
+    msg.style.color = "green";
+    msg.textContent = "Signup successful!";
+}
+</script>
+
+</body>
+</html>

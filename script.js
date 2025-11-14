@@ -103,3 +103,44 @@ async function checkout(total) {
         console.error(error);
     }
 }
+// SELECT ELEMENTS
+const emailInput = document.getElementById("email");
+const passwordInput = document.getElementById("password");
+const togglePassword = document.getElementById("togglePassword");
+const loginBtn = document.getElementById("loginBtn");
+const rememberMe = document.getElementById("rememberMe");
+
+// 🔵 Show / Hide Password
+togglePassword.addEventListener("click", () => {
+    if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        togglePassword.textContent = "👁️"; // icon when visible
+    } else {
+        passwordInput.type = "password";
+        togglePassword.textContent = "⚪"; // icon when hidden
+    }
+});
+
+// 🔵 Handle Login
+loginBtn.addEventListener("click", () => {
+    const email = emailInput.value.trim();
+    const password = passwordInput.value.trim();
+
+    if (email === "" || password === "") {
+        alert("Please fill in all fields.");
+        return;
+    }
+
+    // SAMPLE: Accept any login for now
+    alert("Login successful!");
+
+    // SAVE LOGIN IF REMEMBER ME IS CHECKED
+    if (rememberMe.checked) {
+        localStorage.setItem("savedEmail", email);
+    } else {
+        localStorage.removeItem("savedEmail");
+    }
+
+    // 🔥 REDIRECT TO HOME PAGE AFTER SUCCESSFUL LOGIN
+    window.location.href = "index.html"; 
+});

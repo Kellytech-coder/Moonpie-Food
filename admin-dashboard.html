@@ -3,6 +3,15 @@
 <head>
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="style.css">
+
+    <!-- 🔒 ACCESS CONTROL (BLOCK NON-ADMINS) -->
+    <script>
+        if (localStorage.getItem("role") !== "admin") {
+            alert("Access denied!");
+            window.location.href = "login.html";
+        }
+    </script>
+
 </head>
 <body>
 

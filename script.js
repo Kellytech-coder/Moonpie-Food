@@ -144,3 +144,26 @@ loginBtn.addEventListener("click", () => {
     // 🔥 REDIRECT TO HOME PAGE AFTER SUCCESSFUL LOGIN
     window.location.href = "index.html"; 
 });
+
+// Example admin login
+if (email === "admin@gmail.com" && password === "123456") {
+    localStorage.setItem("role", "admin");
+    window.location.href = "admin/admin-dashboard.html";
+    return;
+}
+
+if (email === "" || password === "") {
+    alert("Please fill in all fields.");
+    return;
+}
+
+// 🔐 ADMIN LOGIN
+if (email === "admin@gmail.com" && password === "123456") {
+    localStorage.setItem("role", "admin");
+    window.location.href = "admin/admin-dashboard.html";
+    return;
+}
+
+// ✅ Normal user login
+alert("Login successful!");
+window.location.href = "index.html";

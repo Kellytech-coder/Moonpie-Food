@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Top Rated - Food Delivery</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#ee9d2b",
+              "background-light": "#f8f7f6",
+              "background-dark": "#181511",
+            },
+            fontFamily: {
+              "display": ["Plus Jakarta Sans", "Noto Sans", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "1.5rem", "xl": "2rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col">
+<!-- Sticky Header -->
+<div class="sticky top-0 z-10 w-full bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm">
+<!-- Top App Bar -->
+<div class="flex items-center p-4">
+<button class="flex size-10 shrink-0 items-center justify-center text-zinc-900 dark:text-white">
+<span class="material-symbols-outlined text-2xl">arrow_back</span>
+</button>
+<h1 class="text-zinc-900 dark:text-white text-xl font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-10">Top Rated</h1>
+</div>
+<!-- Filter Chips Bar -->
+<div class="flex gap-2 p-4 pt-0 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none]">
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-zinc-200 dark:bg-zinc-800 pl-4 pr-4">
+<span class="material-symbols-outlined text-zinc-900 dark:text-white text-xl">tune</span>
+<p class="text-zinc-900 dark:text-white text-sm font-medium leading-normal">Filters</p>
+</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-zinc-200 dark:bg-zinc-800 pl-4 pr-4">
+<p class="text-zinc-900 dark:text-white text-sm font-medium leading-normal">Sort by</p>
+<span class="material-symbols-outlined text-zinc-900 dark:text-white text-xl">expand_more</span>
+</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-zinc-200 dark:bg-zinc-800 pl-4 pr-4">
+<p class="text-zinc-900 dark:text-white text-sm font-medium leading-normal">Italian</p>
+</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-zinc-200 dark:bg-zinc-800 pl-4 pr-4">
+<p class="text-zinc-900 dark:text-white text-sm font-medium leading-normal">Mexican</p>
+</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary pl-4 pr-4">
+<p class="text-zinc-900 text-sm font-bold leading-normal">Free Delivery</p>
+</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-zinc-200 dark:bg-zinc-800 pl-4 pr-4">
+<p class="text-zinc-900 dark:text-white text-sm font-medium leading-normal">Top Rated</p>
+</button>
+</div>
+</div>
+<!-- Restaurant List -->
+<main class="flex flex-col gap-4 p-4">
+<!-- Card 1 -->
+<div class="w-full @container">
+<div class="flex cursor-pointer flex-col overflow-hidden rounded-lg bg-white dark:bg-zinc-900/50 shadow-sm transition-shadow hover:shadow-md">
+<div class="relative w-full bg-center bg-no-repeat aspect-[16/9] bg-cover" data-alt="A delicious-looking spicy Italian pizza with various toppings." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBffeXOdPO8Ojto-73YxHh8ogH0xQ-EbfPEMHXSovYi-jixPOoiWOox_ybbDB6fr7RxZGMwVpvmZv5C71OW3IGhputKuMOfbPNkrtHh1punign4OnjPQ0Ru4eDovQ3r0gLnZfZ2_c1rfCoy2C9CLGITouCD7OoxaZcROda5TaLzrrNcJc_E-4x-rp0QBCsYUzC2rAxUY154DgdRfaFdvLLOUKPJDm0ZERHQf2ZG9QxSJt06zeWbByRGpwMRp6E54eVSFgBOKmddGfW8");'>
+</div>
+<div class="flex w-full flex-col items-stretch justify-center gap-2 p-4">
+<div class="flex items-center justify-between gap-4">
+<h2 class="text-zinc-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Spicy Italian Pizza</h2>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1;">star</span>
+<p class="text-zinc-900 dark:text-white text-base font-bold">4.8</p>
+</div>
+</div>
+<div class="flex items-center gap-4 text-zinc-600 dark:text-zinc-400">
+<p class="text-sm font-normal leading-normal">(1,2k reviews)</p>
+<p class="text-sm font-normal leading-normal">Italian</p>
+<p class="text-sm font-normal leading-normal">$$</p>
+</div>
+<div class="flex items-center gap-2 text-zinc-600 dark:text-zinc-400">
+<span class="material-symbols-outlined text-base">timer</span>
+<p class="text-sm font-normal leading-normal">25-35 min</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="w-full @container">
+<div class="flex cursor-pointer flex-col overflow-hidden rounded-lg bg-white dark:bg-zinc-900/50 shadow-sm transition-shadow hover:shadow-md">
+<div class="relative w-full bg-center bg-no-repeat aspect-[16/9] bg-cover" data-alt="A gourmet beef burger with cheese, lettuce, and tomato on a wooden board." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCrYCmQvVG6SCCQqPX5ZvGEkTY366j_oCv1D55NjSBCsD7PHE1dENSTX8V_Sa439uEkK5-3_EQL7uYxfjgDBDXBcb9VTwX-RvD5rAlAJlqDpzU8n90dky3xeiz-5KPiW4-F3sQsStciu7Kl9spa7_2N2V-uFBiGOYG6LcLHtwURr0ZNm9zyjqCVOsVs4oGsESI8COgdis8nSwQ3hJ79LlijJR_54qYHFdpgzBWhNWntk_Q_PW_CpKE9eaFIGqnRlhEowLwEhfvUf0ga");'>
+</div>
+<div class="flex w-full flex-col items-stretch justify-center gap-2 p-4">
+<div class="flex items-center justify-between gap-4">
+<h2 class="text-zinc-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Gourmet Beef Burger</h2>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1;">star</span>
+<p class="text-zinc-900 dark:text-white text-base font-bold">4.7</p>
+</div>
+</div>
+<div class="flex items-center gap-4 text-zinc-600 dark:text-zinc-400">
+<p class="text-sm font-normal leading-normal">(980 reviews)</p>
+<p class="text-sm font-normal leading-normal">American</p>
+<p class="text-sm font-normal leading-normal">$$</p>
+</div>
+<div class="flex items-center gap-2 text-zinc-600 dark:text-zinc-400">
+<span class="material-symbols-outlined text-base">timer</span>
+<p class="text-sm font-normal leading-normal">20-30 min</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="w-full @container">
+<div class="flex cursor-pointer flex-col overflow-hidden rounded-lg bg-white dark:bg-zinc-900/50 shadow-sm transition-shadow hover:shadow-md">
+<div class="relative w-full bg-center bg-no-repeat aspect-[16/9] bg-cover" data-alt="A platter of fresh salmon sushi and maki rolls." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuByltCpMfhgW7dsVxK6jwgTA8I1-bOV6CU-wfhkRufIUoMfsWORAbLhFE5v54ebY209_kdUhf587NMroLCcfsumm-h9OeBj5RDaH6iDsaltVFF_v5jh5OZyIPxHWO6pP5uptE8uS_2x1MgAFNJwTvbEghusblppo1U2cENxTH1cBnTkdfMlryavMtfT4-VQjxoUWroklx7aF2eSU2WMc1_aaQfpYyS-B5g6OErmr3R3liy0HO7Y6evkvtVOr6Q3AAukZ5VtDU5JFNMo");'>
+</div>
+<div class="flex w-full flex-col items-stretch justify-center gap-2 p-4">
+<div class="flex items-center justify-between gap-4">
+<h2 class="text-zinc-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Fresh Salmon Sushi</h2>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1;">star</span>
+<p class="text-zinc-900 dark:text-white text-base font-bold">4.9</p>
+</div>
+</div>
+<div class="flex items-center gap-4 text-zinc-600 dark:text-zinc-400">
+<p class="text-sm font-normal leading-normal">(1.5k reviews)</p>
+<p class="text-sm font-normal leading-normal">Japanese</p>
+<p class="text-sm font-normal leading-normal">$$$</p>
+</div>
+<div class="flex items-center gap-2 text-zinc-600 dark:text-zinc-400">
+<span class="material-symbols-outlined text-base">timer</span>
+<p class="text-sm font-normal leading-normal">30-40 min</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="w-full @container">
+<div class="flex cursor-pointer flex-col overflow-hidden rounded-lg bg-white dark:bg-zinc-900/50 shadow-sm transition-shadow hover:shadow-md">
+<div class="relative w-full bg-center bg-no-repeat aspect-[16/9] bg-cover" data-alt="A vibrant and healthy vegan poke bowl." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDXIho45Yq8fD3Tup9ZkMKL6qjS6j2Gn7HXe0GFO25L8aDfm_fExlpoiGMmn-92To-zGZSIKKYlOP3w8l9LeeFOSN64NGsxswJ6Op27Jmc2gvZRxcKSd2GCouYstaSQcP-5eCb33lh2Py7wYKg0qqHeHUsjUBzHGq7J1q_BK-b4uJF-vHD9LHpyDz2MQSEA7y8FoNOl3r5lr1ico45rgtrP3_0aYKxiBbjxjo0yr-3D43zbQ9zuaj2L_9su9HWfKe2IURmly_iZwEwE");'>
+</div>
+<div class="flex w-full flex-col items-stretch justify-center gap-2 p-4">
+<div class="flex items-center justify-between gap-4">
+<h2 class="text-zinc-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Vegan Rainbow Bowl</h2>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1;">star</span>
+<p class="text-zinc-900 dark:text-white text-base font-bold">4.8</p>
+</div>
+</div>
+<div class="flex items-center gap-4 text-zinc-600 dark:text-zinc-400">
+<p class="text-sm font-normal leading-normal">(850 reviews)</p>
+<p class="text-sm font-normal leading-normal">Vegan</p>
+<p class="text-sm font-normal leading-normal">$$</p>
+</div>
+<div class="flex items-center gap-2 text-zinc-600 dark:text-zinc-400">
+<span class="material-symbols-outlined text-base">timer</span>
+<p class="text-sm font-normal leading-normal">20-25 min</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

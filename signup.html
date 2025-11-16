@@ -5,87 +5,129 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Sign Up - Food Delivery App</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
 
 <style>
-    body { min-height: max(884px, 100dvh); }
+    body { 
+        min-height: max(884px, 100dvh); 
+        background-color: #0E0A05;
+        color: #EDEAE6;
+    }
+
+    .custom-input {
+        background-color: #1A140F !important;
+        border: 1px solid #3A2F27 !important;
+        color: #EDEAE6 !important;
+    }
+
+    .custom-input::placeholder {
+        color: #8F857A !important;
+    }
+
+    hr { border-color: #3A2F27 !important; }
+
+    .text-secondary { color: #8F857A; }
+
+    .primary-btn {
+        background-color: #FF9E23;
+        color: #0E0A05;
+    }
+
+    .social-btn {
+        background-color: #1A140F;
+        border: 1px solid #3A2F27;
+        color: #EDEAE6;
+    }
+
+    .error-msg {
+        color: #FF4F4F;
+        font-size: 14px;
+        margin-top: 4px;
+    }
 </style>
 </head>
 
-<body class="font-display bg-background-light dark:bg-background-dark">
+<body class="font-display">
 <div class="relative flex min-h-screen w-full flex-col items-center justify-center p-4">
 
 <div class="w-full max-w-md mx-auto">
 
 <!-- Header -->
 <div class="flex flex-col items-center mb-6">
-    <div class="p-4 bg-primary/20 rounded-full mb-4">
-        <span class="material-symbols-outlined text-primary text-4xl">restaurant_menu</span>
+    <div class="p-4 bg-[#FF9E23]/20 rounded-full mb-4">
+        <span class="material-symbols-outlined text-[#FF9E23] text-4xl">restaurant_menu</span>
     </div>
-    <h1 class="text-text-light dark:text-text-dark text-[32px] font-bold">Create an account</h1>
-    <p class="text-text-secondary-light dark:text-text-secondary-dark">Join us and start ordering!</p>
+    <h1 class="text-[32px] font-bold">Create an account</h1>
+    <p class="text-secondary">Join us and start ordering!</p>
 </div>
 
-<!-- Form -->
-<div class="flex w-full flex-col gap-4 py-3">
+<!-- SIGNUP FORM -->
+<form id="signupForm" class="flex w-full flex-col gap-4 py-3">
 
 <label class="flex flex-col w-full">
-    <p class="text-text-light dark:text-text-dark pb-2">Full Name</p>
-    <input class="form-input w-full h-14 rounded-xl p-[15px]" type="text" placeholder="Enter your name"/>
+    <p class="pb-2">Full Name</p>
+    <input id="fullname" class="form-input custom-input w-full h-14 rounded-xl p-[15px]" 
+           type="text" placeholder="Enter your name" required/>
 </label>
 
 <label class="flex flex-col w-full">
-    <p class="text-text-light dark:text-text-dark pb-2">Email</p>
-    <input class="form-input w-full h-14 rounded-xl p-[15px]" type="email" placeholder="Enter your email"/>
+    <p class="pb-2">Email</p>
+    <input id="email" class="form-input custom-input w-full h-14 rounded-xl p-[15px]" 
+           type="email" placeholder="Enter your email" required/>
 </label>
 
 <label class="flex flex-col w-full">
-    <p class="text-text-light dark:text-text-dark pb-2">Password</p>
+    <p class="pb-2">Password</p>
     <div class="relative flex items-center">
-        <input class="form-input w-full h-14 rounded-xl p-[15px] pr-12" type="password" placeholder="Enter your password"/>
-        <button aria-label="Toggle password visibility" class="absolute right-4 text-text-secondary-light dark:text-text-secondary-dark">
+        <input id="password" class="form-input custom-input w-full h-14 rounded-xl p-[15px] pr-12" 
+               type="password" placeholder="Enter your password" required/>
+        <button type="button" aria-label="Toggle password visibility" class="absolute right-4 text-secondary">
             <span class="material-symbols-outlined">visibility_off</span>
         </button>
     </div>
 </label>
 
 <label class="flex flex-col w-full">
-    <p class="text-text-light dark:text-text-dark pb-2">Confirm Password</p>
+    <p class="pb-2">Confirm Password</p>
     <div class="relative flex items-center">
-        <input class="form-input w-full h-14 rounded-xl p-[15px] pr-12" type="password" placeholder="Confirm your password"/>
-        <button aria-label="Toggle password visibility" class="absolute right-4 text-text-secondary-light dark:text-text-secondary-dark">
+        <input id="confirmPassword" class="form-input custom-input w-full h-14 rounded-xl p-[15px] pr-12" 
+               type="password" placeholder="Confirm your password" required/>
+        <button type="button" aria-label="Toggle password visibility" class="absolute right-4 text-secondary">
             <span class="material-symbols-outlined">visibility_off</span>
         </button>
     </div>
 </label>
 
-</div>
+<p id="errorMessage" class="error-msg"></p>
 
 <!-- Sign Up Button -->
 <div class="w-full pt-4 pb-6">
-<button class="flex h-14 w-full items-center justify-center rounded-full bg-primary px-6 text-base font-bold text-background-dark">
+<button type="submit" class="flex h-14 w-full items-center justify-center rounded-full primary-btn px-6 text-base font-bold">
     Sign Up
 </button>
 </div>
 
+</form>
+
 <!-- Divider -->
 <div class="flex items-center gap-4 py-3">
     <hr class="flex-grow border-t"/>
-    <span class="text-sm text-text-secondary-light dark:text-text-secondary-dark">OR</span>
+    <span class="text-sm text-secondary">OR</span>
     <hr class="flex-grow border-t"/>
 </div>
 
 <!-- Social Buttons -->
 <div class="flex w-full flex-col gap-4 py-3">
-<button class="flex h-14 w-full items-center justify-center gap-3 rounded-full border bg-field-light px-6">
+<button class="flex h-14 w-full items-center justify-center gap-3 rounded-full social-btn px-6">
     <img class="h-6 w-6" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCo2eJ30RFGgAf-Ams1CJjkqcbmHCny9FhmbMws191L5gv4D1YxSlNwKo8QK3TvmOQogQjqLQM41RGih64bh1OkQ6dD2DUvvK00Nh84FVVtq3nayxuFlw4UCsI3Z-B5BVjyFrtOw07kmRbhhZ3DDgF0Oe8p73biqwKXJLB5BYo1BitG6l72cc8nTUVj5Id4QCtFNiRXHYYlR84xv4VCb-oizus0dBVcBdbjuSUPjySUh1p902vyoP0q5uDnCYEZtJcgKTc51J1nCAIa"/>
     Sign up with Google
 </button>
 
-<button class="flex h-14 w-full items-center justify-center gap-3 rounded-full border bg-field-light px-6">
+<button class="flex h-14 w-full items-center justify-center gap-3 rounded-full social-btn px-6">
     <img class="h-6 w-6 dark:invert" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzILt2rS4HToahC9idUTpMtp5zcv4l2l2J32ShDa7S2x5LTEBUusjFMyABEznAIz5NVHKZ7quaQaDLbHi1wIFi6W3u0cWJh0AY-5uD2SkPPc1852ayDQxk2ounwKO88YNiS_i3uVe798y8oGM4wlic9MGP5YOb-DbqYijPlrYUweaxX31Q2YIGSOpEV5SfhSkHQpVU16n82vj57ZqqBR6IIBWc6rBwJqi42m36DKUo_rp6iY3pdeTY2wMxPpWvUZ3gIIPHwnlph1AT"/>
     Sign up with Apple
 </button>
@@ -93,9 +135,9 @@
 
 <!-- Footer -->
 <div class="pt-8 text-center">
-<p class="text-xs text-text-secondary-light dark:text-text-secondary-dark">
+<p class="text-xs text-secondary">
     Already have an account?
-    <a href="login.html" class="font-medium text-primary">Log In</a>
+    <a href="login.html" class="font-medium text-[#FF9E23]">Log In</a>
 </p>
 </div>
 
@@ -103,7 +145,7 @@
 </div>
 
 <script>
-// password toggle
+// Password visibility toggle
 document.querySelectorAll('button[aria-label="Toggle password visibility"]').forEach(btn => {
     const icon = btn.querySelector("span");
     const input = btn.previousElementSibling;
@@ -112,6 +154,31 @@ document.querySelectorAll('button[aria-label="Toggle password visibility"]').for
         input.type = input.type === "password" ? "text" : "password";
         icon.textContent = input.type === "password" ? "visibility_off" : "visibility";
     });
+});
+
+// FORM SUBMIT LOGIC
+document.getElementById("signupForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const fullname = document.getElementById("fullname").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirmPassword").value;
+    const errorBox = document.getElementById("errorMessage");
+
+    if (password !== confirmPassword) {
+        errorBox.textContent = "Passwords do not match!";
+        return;
+    }
+
+    // Save user (temporary localStorage – replace with backend later)
+    const userData = { fullname, email, password };
+    localStorage.setItem("user", JSON.stringify(userData));
+
+    errorBox.textContent = "";
+
+    // Redirect to login
+    window.location.href = "login.html";
 });
 </script>
 

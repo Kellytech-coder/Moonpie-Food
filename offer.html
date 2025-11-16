@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Offers &amp; Deals</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#ee9d2b",
+              "background-light": "#f8f7f6",
+              "background-dark": "#181511",
+            },
+            fontFamily: {
+              "display": ["Plus Jakarta Sans", "Noto Sans", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "1.25rem", "xl": "1.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex min-h-screen w-full flex-col">
+<header class="sticky top-0 z-10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm">
+<!-- Top App Bar -->
+<div class="flex items-center p-4 pb-2">
+<div class="text-slate-800 dark:text-white flex size-12 shrink-0 items-center justify-start">
+<span class="material-symbols-outlined text-2xl">arrow_back</span>
+</div>
+<h1 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Offers &amp; Deals</h1>
+<div class="flex size-12 shrink-0 items-center"></div>
+</div>
+<!-- Search Bar -->
+<div class="px-4 py-3">
+<label class="flex flex-col min-w-40 h-12 w-full">
+<div class="flex w-full flex-1 items-stretch rounded-full h-full">
+<div class="text-slate-500 dark:text-[#b9ad9d] flex border-none bg-slate-200 dark:bg-[#393228] items-center justify-center pl-4 rounded-l-full border-r-0">
+<span class="material-symbols-outlined text-2xl">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-r-full text-slate-900 dark:text-white focus:outline-0 focus:ring-0 border-none bg-slate-200 dark:bg-[#393228] focus:border-none h-full placeholder:text-slate-500 dark:placeholder:text-[#b9ad9d] px-4 pl-2 text-base font-normal leading-normal" placeholder="Search for offers or restaurants" value=""/>
+</div>
+</label>
+</div>
+<!-- Filter Chips -->
+<div class="flex gap-3 px-4 pt-1 pb-4 overflow-x-auto">
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary px-4">
+<p class="text-slate-900 dark:text-[#181511] text-sm font-bold leading-normal">All</p>
+</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-slate-200 dark:bg-[#393228] px-4">
+<p class="text-slate-800 dark:text-white text-sm font-medium leading-normal">Pizza</p>
+</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-slate-200 dark:bg-[#393228] px-4">
+<p class="text-slate-800 dark:text-white text-sm font-medium leading-normal">Free Delivery</p>
+</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-slate-200 dark:bg-[#393228] px-4">
+<p class="text-slate-800 dark:text-white text-sm font-medium leading-normal">50% Off</p>
+</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-slate-200 dark:bg-[#393228] px-4">
+<p class="text-slate-800 dark:text-white text-sm font-medium leading-normal">BOGO</p>
+</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-slate-200 dark:bg-[#393228] px-4">
+<p class="text-slate-800 dark:text-white text-sm font-medium leading-normal">Combos</p>
+</button>
+</div>
+</header>
+<main class="flex-grow pb-24">
+<div class="flex flex-col gap-4">
+<!-- Offer Card 1 -->
+<div class="px-4 @container">
+<div class="flex flex-col items-stretch justify-start rounded-xl bg-slate-100 dark:bg-[#27221c] overflow-hidden">
+<div class="w-full bg-center bg-no-repeat aspect-video bg-cover" data-alt="A juicy burger with cheese and lettuce on a wooden board" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCPPhHueg89SgJmnvfpCMs90vP3LLJI9wZ_MQV4q2IPBZG4cTPZhXC8CeXR8zRjIhFxSVxiVJYBw2g_ppnbYhkvylFWf_dvl-ZkQbd2Jj26cHJD6QE5wcn9hhJP2zw9oFBSMISLXzovRnoeMv2awqSYnf-wV3s2qy9dsT2vzn1iBP_fHEbYxgNgsI8LXEn7aQlUHFqc-NeJNjZhn54BpK6ewRKqKIKBeyzg11VZ8XExE7adEiOG6arcgwRddUPsJB8wsRJfrI148JkH");'></div>
+<div class="flex w-full min-w-72 grow flex-col items-stretch justify-center gap-2 p-4">
+<p class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">50% OFF on all Burgers</p>
+<div class="flex items-end gap-3 justify-between">
+<div class="flex flex-col gap-1">
+<p class="text-slate-600 dark:text-[#b9ad9d] text-base font-normal leading-normal">The Burger Place</p>
+<p class="text-slate-500 dark:text-[#b9ad9d] text-sm font-normal leading-normal">Valid until Sunday</p>
+</div>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-5 bg-primary text-[#181511] text-sm font-bold leading-normal">
+<span class="truncate">Order Now</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Offer Card 2 -->
+<div class="px-4 @container">
+<div class="flex flex-col items-stretch justify-start rounded-xl bg-slate-100 dark:bg-[#27221c] overflow-hidden">
+<div class="w-full bg-center bg-no-repeat aspect-video bg-cover" data-alt="A pepperoni pizza being sliced on a wooden peel" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCVFTxoVxmkgrTOIvAqlLRSbp9Udc4fInFypVL2SSyrfG2IAWZ556vQZ1R_RiTA9TvM8VfxFALwqKZeQBqqvJ7rsLC4Cp-3HSNXomcWBzSinQEIOok-ejtAZqXlIvFdsxMdAsi3H3a3_0zAGYfWrVIKV2BWBDLkJpSwJMR9ewCniD7QCffBBTqmR9pxwQ4VXk5jMkOtKZtMY3m7lbQtBE-AvuGKECZy_oHg0SM_8Fb-m1RHjmvlKZ_14yHzKV2TozaMdWjGwaMKBBRS");'></div>
+<div class="flex w-full min-w-72 grow flex-col items-stretch justify-center gap-2 p-4">
+<p class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">FLAT 20% OFF</p>
+<div class="flex items-end gap-3 justify-between">
+<div class="flex flex-col gap-1">
+<p class="text-slate-600 dark:text-[#b9ad9d] text-base font-normal leading-normal">Pizza Heaven</p>
+<p class="text-slate-500 dark:text-[#b9ad9d] text-sm font-normal leading-normal">Min. order $20</p>
+</div>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-5 bg-primary/20 text-primary text-sm font-bold leading-normal">
+<span class="truncate">USE CODE</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Offer Card 3 -->
+<div class="px-4 @container">
+<div class="flex flex-col items-stretch justify-start rounded-xl bg-slate-100 dark:bg-[#27221c] overflow-hidden">
+<div class="w-full bg-center bg-no-repeat aspect-video bg-cover" data-alt="A bowl of fresh salad with various greens, tomatoes, and dressing" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCEz-FobwAFu9cu-YUU3v_4Oki_YSwjZBixhKAy5Kyjmubf6k6BqGXEQATkbsEutk3g9DehWCtCMNnvdoGjs7EypqYBi2Yaz9-asbtAqg2nZyOymiTg3vPJN2oVScgkhC4Bb9kjQIu5q5AXTF6alL2z8E-Rse7wsiCSZ8CAqIrn6e-OX21js_1pQDSx7_VkhVYaBkvFxHxMijLHD8YaQznHfN6La19A1LpqPjWtoil--_qgNNr2qh1adnf24vcBij4vK-L8Y4MYW2sI");'></div>
+<div class="flex w-full min-w-72 grow flex-col items-stretch justify-center gap-2 p-4">
+<p class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Free Delivery on Salads</p>
+<div class="flex items-end gap-3 justify-between">
+<div class="flex flex-col gap-1">
+<p class="text-slate-600 dark:text-[#b9ad9d] text-base font-normal leading-normal">Green Leaf Eatery</p>
+<p class="text-slate-500 dark:text-[#b9ad9d] text-sm font-normal leading-normal">Above $15</p>
+</div>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-5 bg-primary text-[#181511] text-sm font-bold leading-normal">
+<span class="truncate">View Details</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm border-t border-slate-200 dark:border-white/10">
+<div class="flex justify-around items-center h-20">
+<a class="flex flex-col items-center justify-center gap-1 text-slate-500 dark:text-gray-400" href="index.html">
+<span class="material-symbols-outlined text-3xl">home</span>
+<span class="text-xs font-medium">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 text-primary" href="offer.html">
+<span class="material-symbols-outlined text-3xl">local_offer</span>
+<span class="text-xs font-bold">Offers</span>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 text-slate-500 dark:text-gray-400" href="order.html">
+<span class="material-symbols-outlined text-3xl">receipt_long</span>
+<span class="text-xs font-medium">Orders</span>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 text-slate-500 dark:text-gray-400" href="user-profile.html">
+<span class="material-symbols-outlined text-3xl">person</span>
+<span class="text-xs font-medium">Profile</span>
+</a>
+</div>
+</nav>
+</div>
+</body></html>

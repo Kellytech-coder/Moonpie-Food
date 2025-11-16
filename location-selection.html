@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Set Delivery Location</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ee9d2b",
+                        "background-light": "#f8f7f6",
+                        "background-dark": "#221a10",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<!-- Top App Bar -->
+<div class="flex items-center p-4 pb-2 justify-between sticky top-0 bg-background-light dark:bg-background-dark z-10">
+<div class="text-gray-800 dark:text-white flex size-12 shrink-0 items-center justify-start">
+<span class="material-symbols-outlined text-2xl">arrow_back</span>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center text-gray-900 dark:text-white">Set Delivery Location</h2>
+<div class="flex size-12 shrink-0"></div>
+</div>
+<!-- Map View -->
+<div class="flex px-4 py-3">
+<div class="w-full bg-center bg-no-repeat aspect-[4/3] bg-cover rounded-lg object-cover" data-alt="A map view showing a pin at a specific location in a city." data-location="Anytown, USA" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDI090KLD-HAmUHfjdSDPdVsArljQqpqcITW1MOigYl8W0xwZoTeQnifMdXqshdEUXawGWsCOMViDWjgrisHM6b_uBM-dZgEaHvEFHm_lm6EoJhEJIR-hD6d9W1Mv5RdYxt3kUgwZLGqesAKSYhH8kj8ddISkqTFL7v-Vf2Alg_U51EhVGKgj0e_N7j73_cfdPBhqKHNpaPxPHR0Cngig7sHooedfWTyg32J7NyGP5EmLA_A13v0D4FWJ2s2fNCweyV-aTbC2FcZroE");'></div>
+</div>
+<!-- Search Bar -->
+<div class="px-4 py-3">
+<label class="flex flex-col min-w-40 h-14 w-full">
+<div class="flex w-full flex-1 items-stretch rounded-full h-full">
+<div class="text-gray-400 flex border-none bg-gray-100 dark:bg-gray-800 items-center justify-center pl-4 rounded-l-full border-r-0">
+<span class="material-symbols-outlined text-2xl">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-full text-gray-900 dark:text-white focus:outline-0 focus:ring-0 border-none bg-gray-100 dark:bg-gray-800 focus:border-none h-full placeholder:text-gray-500 dark:placeholder:text-gray-400 px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal" placeholder="Search for street, building name..." value=""/>
+</div>
+</label>
+</div>
+<!-- Single Button -->
+<div class="flex px-4 py-3">
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-14 px-5 flex-1 bg-primary/20 text-primary gap-3 text-base font-bold leading-normal tracking-[0.015em]">
+<span class="material-symbols-outlined text-primary">my_location</span>
+<span class="truncate">Use my current location</span>
+</button>
+</div>
+<!-- Section Header -->
+<h3 class="text-gray-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Saved Addresses</h3>
+<!-- Saved Addresses List -->
+<div class="flex flex-col gap-3 px-4 py-3">
+<!-- Address List Item 1: Home -->
+<div class="flex items-center gap-4 rounded-lg p-4 bg-gray-100 dark:bg-gray-800 cursor-pointer">
+<div class="flex size-12 shrink-0 items-center justify-center rounded-full bg-primary/20">
+<span class="material-symbols-outlined text-2xl text-primary">home</span>
+</div>
+<div class="flex flex-col flex-1">
+<p class="text-base font-bold text-gray-900 dark:text-white">Home</p>
+<p class="text-sm text-gray-500 dark:text-gray-400">123 Main Street, Anytown, USA</p>
+</div>
+<span class="material-symbols-outlined text-gray-400 dark:text-gray-500">chevron_right</span>
+</div>
+<!-- Address List Item 2: Office -->
+<div class="flex items-center gap-4 rounded-lg p-4 bg-gray-100 dark:bg-gray-800 cursor-pointer">
+<div class="flex size-12 shrink-0 items-center justify-center rounded-full bg-primary/20">
+<span class="material-symbols-outlined text-2xl text-primary">work</span>
+</div>
+<div class="flex flex-col flex-1">
+<p class="text-base font-bold text-gray-900 dark:text-white">Office</p>
+<p class="text-sm text-gray-500 dark:text-gray-400">456 Business Blvd, Workville, USA</p>
+</div>
+<span class="material-symbols-outlined text-gray-400 dark:text-gray-500">chevron_right</span>
+</div>
+<!-- Address List Item 3: Friend's House -->
+<div class="flex items-center gap-4 rounded-lg p-4 bg-gray-100 dark:bg-gray-800 cursor-pointer">
+<div class="flex size-12 shrink-0 items-center justify-center rounded-full bg-primary/20">
+<span class="material-symbols-outlined text-2xl text-primary">star</span>
+</div>
+<div class="flex flex-col flex-1">
+<p class="text-base font-bold text-gray-900 dark:text-white">Jane's House</p>
+<p class="text-sm text-gray-500 dark:text-gray-400">789 Friendship Ave, Palstown, USA</p>
+</div>
+<span class="material-symbols-outlined text-gray-400 dark:text-gray-500">chevron_right</span>
+</div>
+</div>
+<!-- Confirmation Button -->
+<div class="sticky bottom-0 mt-auto bg-background-light dark:bg-background-dark p-4 pt-2">
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-14 px-5 flex-1 bg-primary text-gray-900 text-base font-bold leading-normal tracking-[0.015em]">
+<span class="truncate">Confirm Location</span>
+</button>
+</div>
+</div>
+</body></html>

@@ -3,7 +3,7 @@
 <html class="dark" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Food Delivery Homepage</title>
+<title>MoonpieFood</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
@@ -56,7 +56,7 @@
 <div class="text-slate-800 dark:text-white flex size-12 shrink-0 items-center justify-start">
 <span class="material-symbols-outlined text-3xl text-primary">location_on</span>
 </div>
-<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1">Delivering to San Francisco, CA</h2>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1">MoonpieFood</h2>
 <div class="flex w-12 items-center justify-end">
 <button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 bg-transparent text-slate-800 dark:text-white gap-2 text-base font-bold leading-normal tracking-[0.015em] min-w-0 p-0">
 <span class="material-symbols-outlined text-2xl">notifications</span>
@@ -195,4 +195,105 @@
 </div>
 </div>
 </div>
+<script>
+    // -----------------------------
+// Dark Mode Toggle (Optional)
+// -----------------------------
+const html = document.documentElement;
+const storedTheme = localStorage.getItem("theme");
+
+if (storedTheme) {
+  html.classList.toggle("dark", storedTheme === "dark");
+}
+
+// Call this function if you add a toggle button later
+function toggleTheme() {
+  const isDark = html.classList.toggle("dark");
+  localStorage.setItem("theme", isDark ? "dark" : "light");
+}
+
+
+// -----------------------------
+// Search Bar Event
+// -----------------------------
+const searchInput = document.querySelector("input[placeholder='Search for restaurants or dishes']");
+
+if (searchInput) {
+  searchInput.addEventListener("input", (e) => {
+    console.log("Searching for:", e.target.value);
+    // TODO: Add real filtering logic here
+  });
+}
+
+
+// -----------------------------
+// Filter Chips Interaction
+// -----------------------------
+const chips = document.querySelectorAll(".flex.h-10");
+
+chips.forEach((chip) => {
+  chip.addEventListener("click", () => {
+    chips.forEach((c) => {
+      c.classList.remove("bg-primary");
+      c.classList.add("bg-slate-200", "dark:bg-zinc-800");
+      c.querySelector("p").classList.remove("text-black");
+      c.querySelector("p").classList.add("text-slate-900", "dark:text-white");
+    });
+
+    chip.classList.remove("bg-slate-200", "dark:bg-zinc-800");
+    chip.classList.add("bg-primary");
+    chip.querySelector("p").classList.remove("text-slate-900", "dark:text-white");
+    chip.querySelector("p").classList.add("text-black");
+
+    console.log("Filter selected:", chip.textContent.trim());
+  });
+});
+
+
+// -----------------------------
+// Sticky Header Shadow on Scroll
+// -----------------------------
+const header = document.querySelector(".sticky");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 10) {
+    header.classList.add("shadow-md");
+  } else {
+    header.classList.remove("shadow-md");
+  }
+});
+
+
+// -----------------------------
+// Bottom Navigation Active State
+// -----------------------------
+const navButtons = document.querySelectorAll("nav button, .fixed button, .fixed a");
+
+navButtons.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    navButtons.forEach((b) => {
+      b.classList.remove("text-primary");
+      b.classList.add("text-slate-500", "dark:text-slate-400");
+    });
+
+    btn.classList.remove("text-slate-500", "dark:text-slate-400");
+    btn.classList.add("text-primary");
+  });
+});
+
+
+// -----------------------------
+// Example Restaurant Card Click
+// -----------------------------
+const restaurantCards = document.querySelectorAll("[data-alt]");
+
+restaurantCards.forEach((card) => {
+  card.addEventListener("click", () => {
+    const name = card.parentElement.querySelector("p.font-bold")?.textContent.trim();
+    console.log("Restaurant clicked:", name);
+    // TODO: Add navigation (restaurant details page)
+  });
+});
+
+</script>
 </body></html>

@@ -1,169 +1,118 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="dark" lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Signup Page</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Sign Up - Food Delivery App</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+
+<style>
+    body { min-height: max(884px, 100dvh); }
+</style>
 </head>
 
-<body style="
-    margin:0;
-    font-family:Arial, sans-serif;
-    background:linear-gradient(135deg,#6f80ff,#7f50ff,#5f8bff);
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    overflow:hidden;
-">
+<body class="font-display bg-background-light dark:bg-background-dark">
+<div class="relative flex min-h-screen w-full flex-col items-center justify-center p-4">
 
-<!-- GLASS CARD -->
-<div style="
-    width:750px;
-    max-width:95%;
-    padding:40px;
-    background:rgba(255,255,255,0.25);
-    backdrop-filter:blur(15px);
-    border-radius:20px;
-    box-shadow:0 10px 40px rgba(0,0,0,0.2);
-    display:flex;
-    justify-content:space-between;
-    gap:20px;
-">
+<div class="w-full max-w-md mx-auto">
 
-    <!-- LEFT SECTION -->
-    <div style="width:48%;">
-        <h2 style="color:#000; margin-bottom:25px; font-size:28px;">Sign Up</h2>
-
-        <div id="message" style="color:red; margin-bottom:15px;"></div>
-
-        <input id="name" type="text" placeholder="Full Name" style="
-            width:100%;
-            padding:14px;
-            margin-bottom:15px;
-            border:none;
-            border-radius:30px;
-            font-size:15px;
-            outline:none;
-        ">
-
-        <input id="email" type="email" placeholder="Email Address" style="
-            width:100%;
-            padding:14px;
-            margin-bottom:15px;
-            border:none;
-            border-radius:30px;
-            font-size:15px;
-            outline:none;
-        ">
-
-        <input id="password" type="password" placeholder="Password" style="
-            width:100%;
-            padding:14px;
-            margin-bottom:15px;
-            border:none;
-            border-radius:30px;
-            font-size:15px;
-            outline:none;
-        ">
-
-        <input id="confirm" type="password" placeholder="Confirm Password" style="
-            width:100%;
-            padding:14px;
-            border:none;
-            border-radius:30px;
-            font-size:15px;
-            outline:none;
-        ">
+<!-- Header -->
+<div class="flex flex-col items-center mb-6">
+    <div class="p-4 bg-primary/20 rounded-full mb-4">
+        <span class="material-symbols-outlined text-primary text-4xl">restaurant_menu</span>
     </div>
+    <h1 class="text-text-light dark:text-text-dark text-[32px] font-bold">Create an account</h1>
+    <p class="text-text-secondary-light dark:text-text-secondary-dark">Join us and start ordering!</p>
+</div>
 
-    <!-- RIGHT SECTION -->
-    <div style="width:48%;">
+<!-- Form -->
+<div class="flex w-full flex-col gap-4 py-3">
 
-        <button onclick="submitForm()" style="
-            width:100%;
-            padding:12px;
-            background:#000;
-            color:#fff;
-            border:none;
-            border-radius:30px;
-            font-size:16px;
-            cursor:pointer;
-            margin-bottom:15px;
-        ">Sign Up</button>
+<label class="flex flex-col w-full">
+    <p class="text-text-light dark:text-text-dark pb-2">Full Name</p>
+    <input class="form-input w-full h-14 rounded-xl p-[15px]" type="text" placeholder="Enter your name"/>
+</label>
 
-        <p style="font-size:14px; color:#000; margin-bottom:20px;">
-    Already have an account?
-    <a href="login.html" style="color:#000; font-weight:bold;">Log in</a>
-</p>
+<label class="flex flex-col w-full">
+    <p class="text-text-light dark:text-text-dark pb-2">Email</p>
+    <input class="form-input w-full h-14 rounded-xl p-[15px]" type="email" placeholder="Enter your email"/>
+</label>
 
-
-        <p style="text-align:center; font-size:14px; color:#000; margin-bottom:15px;">Or</p>
-
-        <!-- GOOGLE BUTTON -->
-        <button style="
-            width:100%;
-            padding:12px;
-            border-radius:25px;
-            border:1px solid #ddd;
-            background:#fff;
-            cursor:pointer;
-            font-size:15px;
-            margin-bottom:12px;
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            gap:10px;
-        ">
-            <span style="font-size:18px;">🔵</span>
-            Sign up with Google
-        </button>
-
-        <!-- FACEBOOK BUTTON -->
-        <button style="
-            width:100%;
-            padding:12px;
-            border-radius:25px;
-            border:1px solid #ddd;
-            background:#fff;
-            cursor:pointer;
-            font-size:15px;
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            gap:10px;
-        ">
-            <span style="font-size:18px;">🔷</span>
-            Sign up with Facebook
+<label class="flex flex-col w-full">
+    <p class="text-text-light dark:text-text-dark pb-2">Password</p>
+    <div class="relative flex items-center">
+        <input class="form-input w-full h-14 rounded-xl p-[15px] pr-12" type="password" placeholder="Enter your password"/>
+        <button aria-label="Toggle password visibility" class="absolute right-4 text-text-secondary-light dark:text-text-secondary-dark">
+            <span class="material-symbols-outlined">visibility_off</span>
         </button>
     </div>
+</label>
+
+<label class="flex flex-col w-full">
+    <p class="text-text-light dark:text-text-dark pb-2">Confirm Password</p>
+    <div class="relative flex items-center">
+        <input class="form-input w-full h-14 rounded-xl p-[15px] pr-12" type="password" placeholder="Confirm your password"/>
+        <button aria-label="Toggle password visibility" class="absolute right-4 text-text-secondary-light dark:text-text-secondary-dark">
+            <span class="material-symbols-outlined">visibility_off</span>
+        </button>
+    </div>
+</label>
 
 </div>
 
+<!-- Sign Up Button -->
+<div class="w-full pt-4 pb-6">
+<button class="flex h-14 w-full items-center justify-center rounded-full bg-primary px-6 text-base font-bold text-background-dark">
+    Sign Up
+</button>
+</div>
+
+<!-- Divider -->
+<div class="flex items-center gap-4 py-3">
+    <hr class="flex-grow border-t"/>
+    <span class="text-sm text-text-secondary-light dark:text-text-secondary-dark">OR</span>
+    <hr class="flex-grow border-t"/>
+</div>
+
+<!-- Social Buttons -->
+<div class="flex w-full flex-col gap-4 py-3">
+<button class="flex h-14 w-full items-center justify-center gap-3 rounded-full border bg-field-light px-6">
+    <img class="h-6 w-6" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCo2eJ30RFGgAf-Ams1CJjkqcbmHCny9FhmbMws191L5gv4D1YxSlNwKo8QK3TvmOQogQjqLQM41RGih64bh1OkQ6dD2DUvvK00Nh84FVVtq3nayxuFlw4UCsI3Z-B5BVjyFrtOw07kmRbhhZ3DDgF0Oe8p73biqwKXJLB5BYo1BitG6l72cc8nTUVj5Id4QCtFNiRXHYYlR84xv4VCb-oizus0dBVcBdbjuSUPjySUh1p902vyoP0q5uDnCYEZtJcgKTc51J1nCAIa"/>
+    Sign up with Google
+</button>
+
+<button class="flex h-14 w-full items-center justify-center gap-3 rounded-full border bg-field-light px-6">
+    <img class="h-6 w-6 dark:invert" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzILt2rS4HToahC9idUTpMtp5zcv4l2l2J32ShDa7S2x5LTEBUusjFMyABEznAIz5NVHKZ7quaQaDLbHi1wIFi6W3u0cWJh0AY-5uD2SkPPc1852ayDQxk2ounwKO88YNiS_i3uVe798y8oGM4wlic9MGP5YOb-DbqYijPlrYUweaxX31Q2YIGSOpEV5SfhSkHQpVU16n82vj57ZqqBR6IIBWc6rBwJqi42m36DKUo_rp6iY3pdeTY2wMxPpWvUZ3gIIPHwnlph1AT"/>
+    Sign up with Apple
+</button>
+</div>
+
+<!-- Footer -->
+<div class="pt-8 text-center">
+<p class="text-xs text-text-secondary-light dark:text-text-secondary-dark">
+    Already have an account?
+    <a href="login.html" class="font-medium text-primary">Log In</a>
+</p>
+</div>
+
+</div>
+</div>
+
 <script>
-// SIMPLE SIGNUP VALIDATION
-function submitForm() {
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const pass = document.getElementById("password").value.trim();
-    const conf = document.getElementById("confirm").value.trim();
-    const msg = document.getElementById("message");
+// password toggle
+document.querySelectorAll('button[aria-label="Toggle password visibility"]').forEach(btn => {
+    const icon = btn.querySelector("span");
+    const input = btn.previousElementSibling;
 
-    if(!name || !email || !pass || !conf) {
-        msg.style.color = "red";
-        msg.textContent = "All fields are required!";
-        return;
-    }
-
-    if(pass !== conf){
-        msg.style.color = "red";
-        msg.textContent = "Passwords do not match!";
-        return;
-    }
-
-    msg.style.color = "green";
-    msg.textContent = "Signup successful!";
-}
+    btn.addEventListener("click", () => {
+        input.type = input.type === "password" ? "text" : "password";
+        icon.textContent = input.type === "password" ? "visibility_off" : "visibility";
+    });
+});
 </script>
 
 </body>

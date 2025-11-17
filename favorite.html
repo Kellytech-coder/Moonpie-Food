@@ -167,26 +167,105 @@
 </main>
 <!-- Bottom Navigation Bar -->
 <nav class="fixed bottom-0 left-0 right-0 h-20 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 flex justify-around items-center px-4">
-<a class="flex flex-col items-center gap-1 text-gray-500 dark:text-gray-400" href="#">
+<a class="flex flex-col items-center gap-1 text-gray-500 dark:text-gray-400" href="index.html">
 <span class="material-symbols-outlined !font-light">home</span>
 <span class="text-xs">Home</span>
 </a>
-<a class="flex flex-col items-center gap-1 text-gray-500 dark:text-gray-400" href="#">
+<a class="flex flex-col items-center gap-1 text-gray-500 dark:text-gray-400" href="">
 <span class="material-symbols-outlined !font-light">search</span>
 <span class="text-xs">Search</span>
 </a>
-<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<a class="flex flex-col items-center gap-1 text-primary" href="favorite.html">
 <span class="material-symbols-outlined">favorite</span>
 <span class="text-xs font-bold">Favorites</span>
 </a>
-<a class="flex flex-col items-center gap-1 text-gray-500 dark:text-gray-400" href="#">
+<a class="flex flex-col items-center gap-1 text-gray-500 dark:text-gray-400" href="order.html">
 <span class="material-symbols-outlined !font-light">receipt_long</span>
 <span class="text-xs">Orders</span>
 </a>
-<a class="flex flex-col items-center gap-1 text-gray-500 dark:text-gray-400" href="#">
+<a class="flex flex-col items-center gap-1 text-gray-500 dark:text-gray-400" href="user-profile.html">
 <span class="material-symbols-outlined !font-light">person</span>
 <span class="text-xs">Profile</span>
 </a>
 </nav>
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Dark Mode Toggle (press "D" for demo)
+        document.addEventListener('keydown', (e) => {
+            if (e.key.toLowerCase() === 'd') {
+                document.documentElement.classList.toggle('dark');
+            }
+        });
+    
+        // Favorite button toggle
+        const favoriteButtons = document.querySelectorAll('button .material-symbols-outlined.text-xl');
+        favoriteButtons.forEach(icon => {
+            const btn = icon.closest('button');
+            btn.addEventListener('click', () => {
+                if (icon.textContent === 'favorite') {
+                    icon.textContent = 'favorite_border';
+                    icon.classList.remove('text-primary');
+                    icon.classList.add('text-gray-300');
+                } else {
+                    icon.textContent = 'favorite';
+                    icon.classList.add('text-primary');
+                    icon.classList.remove('text-gray-300');
+                }
+            });
+        });
+    
+        // Tabs switching
+        const tabs = document.querySelectorAll('div.border-b a');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', (e) => {
+                e.preventDefault();
+                tabs.forEach(t => t.classList.remove('border-b-primary'));
+                tabs.forEach(t => t.querySelector('p').classList.remove('text-primary'));
+                tab.classList.add('border-b-primary');
+                tab.querySelector('p').classList.add('text-primary');
+            });
+        });
+    
+        // Search filtering
+        const searchInput = document.querySelector('input[placeholder="Search in favorites"]');
+        const restaurantCards = document.querySelectorAll('.flex.flex-col.gap-3.rounded-lg.bg-white.dark\\:bg-gray-800.p-3.shadow-sm');
+    
+        searchInput.addEventListener('input', () => {
+            const query = searchInput.value.toLowerCase();
+            restaurantCards.forEach(card => {
+                const name = card.querySelector('p.font-bold').textContent.toLowerCase();
+                if (name.includes(query)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    
+        // Browse Restaurants button scroll to top
+        const browseButton = document.querySelector('button span.truncate');
+        if (browseButton) {
+            browseButton.closest('button').addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+    
+        // Back Arrow functionality
+        const backArrow = document.querySelector('header span.material-symbols-outlined');
+        if (backArrow) {
+            backArrow.closest('div').addEventListener('click', () => {
+                // Go back in browser history
+                if (window.history.length > 1) {
+                    window.history.back();
+                } else {
+                    // If no history, go to home page
+                    window.location.href = 'index.html';
+                }
+            });
+        }
+    });
+    </script>
+    
+    
 </body></html>

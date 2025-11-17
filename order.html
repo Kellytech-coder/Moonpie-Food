@@ -178,11 +178,111 @@
 <!-- Sticky Footer -->
 <footer class="fixed bottom-0 left-0 right-0 z-10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm border-t border-white/10 dark:border-white/10">
 <div class="p-4">
-<button class="w-full bg-primary text-background-dark font-bold text-lg py-4 px-6 rounded-lg flex items-center justify-center gap-4">
+  <a href="payment-method.html">
+    <button class="w-full bg-primary text-background-dark font-bold text-lg py-4 px-6 rounded-lg flex items-center justify-center gap-4">
 <span>Place Order</span>
 <span>$31.31</span>
 </button>
+</a>
+
 </div>
 </footer>
 </div>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // ---------- Back arrow ----------
+    const backButton = document.querySelector('header button');
+    backButton?.addEventListener('click', () => {
+      if (window.history.length > 1) {
+        window.history.back();
+      } else {
+        window.location.href = 'index.html';
+      }
+    });
+  
+    // ---------- Quantity buttons ----------
+    const items = document.querySelectorAll('main .flex.gap-4.bg-transparent.py-3');
+    items.forEach(item => {
+      const minusBtn = item.querySelector('button:first-child');
+      const plusBtn = item.querySelector('button:last-child');
+      const qtySpan = item.querySelector('span');
+      let qty = parseInt(qtySpan.textContent);
+  
+      const updateTotal = () => {
+        let subtotal = 0;
+        items.forEach(it => {
+          const q = parseInt(it.querySelector('span').textContent);
+          const price = parseFloat(it.querySelector('p.font-medium:last-child').textContent.replace('$',''));
+          subtotal += q * price;
+        });
+        const deliveryFee = 5.00;
+        const taxes = 2.82;
+        const total = subtotal + deliveryFee + taxes;
+  
+        document.querySelector('div.flex.justify-between.text-stone-900.dark\\:text-white.font-bold.text-lg p:first-child').nextElementSibling.textContent = `$${total.toFixed(2)}`;
+        document.querySelector('footer button span:last-child').textContent = `$${total.toFixed(2)}`;
+      };
+  
+      minusBtn?.addEventListener('click', () => {
+        if (qty > 1) {
+          qty--;
+          qtySpan.textContent = qty;
+          updateTotal();
+        }
+      });
+  
+      plusBtn?.addEventListener('click', () => {
+        qty++;
+        qtySpan.textContent = qty;
+        updateTotal();
+      });
+    });
+  
+    // ---------- Change Address ----------
+    const changeAddressBtn = [...document.querySelectorAll('button')].find(btn => btn.textContent.trim() === 'Change' && btn.closest('div')?.querySelector('p:textContent')?.includes('Deliver to'));
+    const deliveryDiv = document.querySelector('div.flex.items-center.gap-4.rounded-lg.bg-stone-100.dark\\:bg-stone-900.p-4');
+    [...document.querySelectorAll('button')].forEach(btn => {
+      if (btn.textContent.trim() === 'Change' && deliveryDiv && deliveryDiv.contains(btn)) {
+        btn.addEventListener('click', () => {
+          const newAddress = prompt('Enter new delivery address:', '123 Market St, Suite 200');
+          if (newAddress) {
+            deliveryDiv.querySelector('p.font-medium').textContent = newAddress;
+          }
+        });
+      }
+    });
+  
+    // ---------- Change Payment ----------
+    const paymentDiv = [...document.querySelectorAll('div.flex.items-center.gap-4.rounded-lg.bg-stone-100.dark\\:bg-stone-900.p-4')].find(div => div.querySelector('p:textContent')?.includes('Payment Method'));
+    [...document.querySelectorAll('button')].forEach(btn => {
+      if (btn.textContent.trim() === 'Change' && paymentDiv && paymentDiv.contains(btn)) {
+        btn.addEventListener('click', () => {
+          const newPayment = prompt('Enter new payment method:', 'Visa **** 1234');
+          if (newPayment) {
+            paymentDiv.querySelector('p.font-medium').textContent = newPayment;
+          }
+        });
+      }
+    });
+  
+    // ---------- Promo Code ----------
+    const promoInput = document.querySelector('input[placeholder="Add a promo code"]');
+    const promoBtn = [...document.querySelectorAll('button')].find(btn => btn.textContent.trim() === 'Apply');
+    promoBtn?.addEventListener('click', () => {
+      if (promoInput.value.trim()) {
+        alert(`Promo code "${promoInput.value.trim()}" applied!`);
+        promoInput.value = '';
+      } else {
+        alert('Please enter a promo code.');
+      }
+    });
+  
+    // ---------- Place Order ----------
+    const placeOrderBtn = document.querySelector('footer button');
+    placeOrderBtn?.addEventListener('click', () => {
+      alert('Order placed successfully!');
+    });
+  });
+  </script>
+    
 </body></html>

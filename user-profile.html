@@ -104,7 +104,10 @@
 <div class="text-zinc-900 dark:text-white flex items-center justify-center rounded-lg bg-primary/20 shrink-0 size-10">
 <span class="material-symbols-outlined text-primary">credit_card</span>
 </div>
-<p class="text-zinc-900 dark:text-white text-base font-medium leading-normal flex-1 truncate">Payment Methods</p>
+<a href="payment-method.html">
+  <p class="text-zinc-900 dark:text-white text-base font-medium leading-normal flex-1 truncate">Payment Methods</p>
+</a>
+
 </div>
 <div class="shrink-0">
 <div class="text-zinc-500 dark:text-zinc-400 flex size-7 items-center justify-center">
@@ -170,4 +173,81 @@
 </div>
 </div>
 </div>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // ---------- Back Arrow ----------
+    const backBtn = document.querySelector('div.flex.items-center.justify-center span.material-symbols-outlined');
+    if (backBtn) {
+      backBtn.addEventListener('click', () => {
+        if (window.history.length > 1) {
+          window.history.back();
+        } else {
+          window.location.href = 'index.html';
+        }
+      });
+    }
+  
+    // ---------- Edit Avatar ----------
+    const editAvatarBtn = document.querySelector('button.absolute.bottom-0.right-0');
+    if (editAvatarBtn) {
+      editAvatarBtn.addEventListener('click', () => {
+        const newAvatar = prompt('Enter the URL of your new avatar:');
+        if (newAvatar) {
+          const avatarDiv = document.querySelector('div.bg-center.bg-no-repeat.aspect-square.bg-cover.rounded-full');
+          avatarDiv.style.backgroundImage = `url("${newAvatar}")`;
+        }
+      });
+    }
+  
+    // ---------- Profile Menu Buttons ----------
+    const menuButtons = document.querySelectorAll('div.cursor-pointer');
+    menuButtons.forEach(btn => {
+      const label = btn.querySelector('p.flex-1')?.textContent.trim();
+      if (!label) return;
+      btn.addEventListener('click', () => {
+        switch(label) {
+          case 'Personal Details':
+            alert('Opening Personal Details...');
+            break;
+          case 'My Addresses':
+            const newAddress = prompt('Enter new address:', '123 Main Street');
+            if (newAddress) {
+              alert(`Address updated to: ${newAddress}`);
+            }
+            break;
+          case 'Payment Methods':
+            const newPayment = prompt('Enter new payment method:', 'Visa **** 1234');
+            if (newPayment) {
+              alert(`Payment method updated to: ${newPayment}`);
+            }
+            break;
+          case 'Order History':
+            alert('Showing Order History...');
+            break;
+          case 'Settings':
+            alert('Opening Settings...');
+            break;
+          case 'Help Center':
+            alert('Opening Help Center...');
+            break;
+          default:
+            console.log('Button clicked:', label);
+        }
+      });
+    });
+  
+    // ---------- Log Out ----------
+    const logoutBtn = document.querySelector('button.flex.w-full.items-center.justify-center.gap-2');
+    if (logoutBtn) {
+      logoutBtn.addEventListener('click', () => {
+        const confirmLogout = confirm('Are you sure you want to log out?');
+        if (confirmLogout) {
+          alert('Logged out successfully!');
+          window.location.href = 'index.html'; // redirect to home/login
+        }
+      });
+    }
+  });
+  </script>
+    
 </body></html>

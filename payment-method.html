@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Payment Methods</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#ee9d2b",
+              "background-light": "#f8f7f6",
+              "background-dark": "#221a10",
+            },
+            fontFamily: {
+              "display": ["Plus Jakarta Sans", "Noto Sans", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<!-- Top App Bar -->
+<header class="flex items-center p-4 pb-2 justify-between sticky top-0 z-10 bg-background-light dark:bg-background-dark/80 backdrop-blur-sm">
+<button class="text-stone-800 dark:text-stone-200 flex size-12 shrink-0 items-center justify-center rounded-full bg-stone-500/10 hover:bg-stone-500/20 transition-colors">
+<span class="material-symbols-outlined text-2xl">arrow_back</span>
+</button>
+<h1 class="text-stone-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-12">Payment Methods</h1>
+</header>
+<main class="flex-1 flex flex-col gap-4 p-4">
+<!-- Payment Method List -->
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-4 bg-white dark:bg-stone-900/50 p-4 min-h-[72px] rounded-lg border border-transparent dark:border-primary/50 ring-2 ring-primary/50">
+<div class="flex items-center gap-4 flex-1">
+<img class="h-6 w-10 shrink-0 object-contain" data-alt="Mastercard logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0Wvdw_VS-4f29T3M7E5pntJ-BSGWDyVGbwHfuo-9uJ2K7LJmnQguhpVf4EKxV-6N0wAKaSS2Siwjsel-5NSasOxe12P88T2oJ4lbBYLlfuBfVqC1bH2Nna3F9mqk_bOIHRgH5ZaT6cAAEa9DUqw2q-330X09DH_B7hFl9s8TmWr0XioApCG48wmNsx5cl2-8KHIojRTVshj63sLfbC2pokqmzixDZQKUnCFjVzmC91dEbAYpVFy6BklMgcqN3RD2ym5BiM-Sud56-"/>
+<div class="flex flex-col justify-center">
+<p class="text-stone-900 dark:text-white text-base font-medium leading-normal line-clamp-1">Mastercard •••• 1234</p>
+<p class="text-stone-500 dark:text-stone-400 text-sm font-normal leading-normal line-clamp-2">Expires 12/25</p>
+</div>
+</div>
+<div class="shrink-0 flex items-center gap-2">
+<div class="flex items-center justify-center gap-1.5 rounded-full bg-primary/20 px-3 py-1 text-xs font-bold text-primary">
+<span class="material-symbols-outlined text-sm">check_circle</span>
+<span>Preferred</span>
+</div>
+<button class="text-stone-600 dark:text-stone-300 flex size-8 items-center justify-center rounded-full hover:bg-stone-500/10 transition-colors">
+<span class="material-symbols-outlined text-2xl">more_vert</span>
+</button>
+</div>
+</div>
+<div class="flex items-center gap-4 bg-white dark:bg-stone-900/50 p-4 min-h-[72px] rounded-lg">
+<div class="flex items-center gap-4 flex-1">
+<img class="h-6 w-10 shrink-0 object-contain" data-alt="Visa logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDgsi_M8PgrelWQ7lcy_2g1bzK-suiMcagCyB9CprRYCj5rrvfF-UPKCMXDudNj397MzbcRQ6AayzdBVuX9Cml6zWPMfAu3ESMA6v90d93zs7qTa4QQyQITEZBvxP5I4Anal39qQQ_i2GrSa1X56bMLAjtEHyrwESYUGBDh6gBhslop-1pnl5dnD6_JUwfN4nYEfVeLZL40bgUj9yMoRDOr9aTIVTtGVmOkG9VhqbRUFQnPb8a-XulWfdap3wk0kzo6v6Jvj3-Jem_"/>
+<div class="flex flex-col justify-center">
+<p class="text-stone-900 dark:text-white text-base font-medium leading-normal line-clamp-1">Visa •••• 5678</p>
+<p class="text-stone-500 dark:text-stone-400 text-sm font-normal leading-normal line-clamp-2">Expires 08/26</p>
+</div>
+</div>
+<div class="shrink-0">
+<button class="text-stone-600 dark:text-stone-300 flex size-8 items-center justify-center rounded-full hover:bg-stone-500/10 transition-colors">
+<span class="material-symbols-outlined text-2xl">more_vert</span>
+</button>
+</div>
+</div>
+<div class="flex items-center gap-4 bg-white dark:bg-stone-900/50 p-4 min-h-[72px] rounded-lg">
+<div class="flex items-center gap-4 flex-1">
+<img class="h-6 w-10 shrink-0 object-contain" data-alt="Apple Pay logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbVnd993aZ2pTuKwUGXof4ekJc7MhsBuhjwpSBn1qvS10UooumteGSeTpFIG_q-u6VRvR8JISctllbpMjkjYqcOgXWPPy-vW7xI6MGamEGPNWyUfcurOEJKEk89-8nNVlOcMOKG8MeW8xFRJLPT8PNAkytSZxdZfnmEyMlu7HiFPdzT698Psa3FO_CVAPgf-SuWoKJK40hrg9xa1GZzxHGZ3ciMTtKO2Vx648er0sAiCbT_-4pKNsvx7zJNXb8mAnG4xUfkC4qLbrq"/>
+<p class="text-stone-900 dark:text-white text-base font-normal leading-normal flex-1 truncate">Apple Pay</p>
+</div>
+<div class="shrink-0">
+<button class="text-stone-600 dark:text-stone-300 flex size-8 items-center justify-center rounded-full hover:bg-stone-500/10 transition-colors">
+<span class="material-symbols-outlined text-2xl">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+<div class="flex-grow"></div>
+</main>
+<!-- Fixed Bottom Button -->
+<footer class="sticky bottom-0 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm p-4 pt-2">
+<button class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-5 bg-primary text-stone-900 gap-2 text-base font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
+<span class="material-symbols-outlined">add</span>
+<span class="truncate">Add a New Payment Method</span>
+</button>
+</footer>
+</div>
+<script>
+    // Example initial payment methods
+    let paymentMethods = [
+      { id: 1, type: 'Mastercard', number: '1234', expiry: '12/25', preferred: true, logo: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB0Wvdw_VS-4f29T3M7E5pntJ-BSGWDyVGbwHfuo-9uJ2K7LJmnQguhpVf4EKxV-6N0wAKaSS2Siwjsel-5NSasOxe12P88T2oJ4lbBYLlfuBfVqC1bH2Nna3F9mqk_bOIHRgH5ZaT6cAAEa9DUqw2q-330X09DH_B7hFl9s8TmWr0XioApCG48wmNsx5cl2-8KHIojRTVshj63sLfbC2pokqmzixDZQKUnCFjVzmC91dEbAYpVFy6BklMgcqN3RD2ym5BiM-Sud56-' },
+      { id: 2, type: 'Visa', number: '5678', expiry: '08/26', preferred: false, logo: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDDgsi_M8PgrelWQ7lcy_2g1bzK-suiMcagCyB9CprRYCj5rrvfF-UPKCMXDudNj397MzbcRQ6AayzdBVuX9Cml6zWPMfAu3ESMA6v90d93zs7qTa4QQyQITEZBvxP5I4Anal39qQQ_i2GrSa1X56bMLAjtEHyrwESYUGBDh6gBhslop-1pnl5dnD6_JUwfN4nYEfVeLZL40bgUj9yMoRDOr9aTIVTtGVmOkG9VhqbRUFQnPb8a-XulWfdap3wk0kzo6v6Jvj3-Jem_' },
+      { id: 3, type: 'Apple Pay', number: '', expiry: '', preferred: false, logo: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAbVnd993aZ2pTuKwUGXof4ekJc7MhsBuhjwpSBn1qvS10UooumteGSeTpFIG_q-u6VRvR8JISctllbpMjkjYqcOgXWPPy-vW7xI6MGamEGPNWyUfcurOEJKEk89-8nNVlOcMOKG8MeW8xFRJLPT8PNAkytSZxdZfnmEyMlu7HiFPdzT698Psa3FO_CVAPgf-SuWoKJK40hrg9xa1GZzxHGZ3ciMTtKO2Vx648er0sAiCbT_-4pKNsvx7zJNXb8mAnG4xUfkC4qLbrq' }
+    ];
+  
+    const paymentListContainer = document.querySelector('main .flex.flex-col.gap-2');
+  
+    // Function to render the payment methods
+    function renderPayments() {
+      paymentListContainer.innerHTML = '';
+      paymentMethods.forEach(method => {
+        const div = document.createElement('div');
+        div.className = 'flex items-center gap-4 bg-white dark:bg-stone-900/50 p-4 min-h-[72px] rounded-lg border border-transparent dark:border-primary/50 ring-2 ' + (method.preferred ? 'ring-primary/50' : '');
+        div.innerHTML = `
+          <div class="flex items-center gap-4 flex-1">
+            <img class="h-6 w-10 shrink-0 object-contain" src="${method.logo}" alt="${method.type} logo"/>
+            <div class="flex flex-col justify-center">
+              <p class="text-stone-900 dark:text-white text-base font-medium leading-normal line-clamp-1">${method.type}${method.number ? ' •••• ' + method.number : ''}</p>
+              <p class="text-stone-500 dark:text-stone-400 text-sm font-normal leading-normal line-clamp-2">${method.expiry ? 'Expires ' + method.expiry : ''}</p>
+            </div>
+          </div>
+          <div class="shrink-0 flex items-center gap-2">
+            ${method.preferred ? `<div class="flex items-center justify-center gap-1.5 rounded-full bg-primary/20 px-3 py-1 text-xs font-bold text-primary">
+              <span class="material-symbols-outlined text-sm">check_circle</span>
+              <span>Preferred</span>
+            </div>` : ''}
+            <button class="text-stone-600 dark:text-stone-300 flex size-8 items-center justify-center rounded-full hover:bg-stone-500/10 transition-colors" onclick="setPreferred(${method.id})">
+              <span class="material-symbols-outlined text-2xl">star</span>
+            </button>
+            <button class="text-stone-600 dark:text-stone-300 flex size-8 items-center justify-center rounded-full hover:bg-stone-500/10 transition-colors" onclick="removePayment(${method.id})">
+              <span class="material-symbols-outlined text-2xl">delete</span>
+            </button>
+          </div>
+        `;
+        paymentListContainer.appendChild(div);
+      });
+    }
+  
+    // Set a payment as preferred
+    function setPreferred(id) {
+      paymentMethods = paymentMethods.map(m => ({ ...m, preferred: m.id === id }));
+      renderPayments();
+    }
+  
+    // Remove a payment method
+    function removePayment(id) {
+      paymentMethods = paymentMethods.filter(m => m.id !== id);
+      renderPayments();
+    }
+  
+    // Add a new payment method (example)
+    document.querySelector('footer button').addEventListener('click', () => {
+      const newId = paymentMethods.length ? Math.max(...paymentMethods.map(m => m.id)) + 1 : 1;
+      const newMethod = { id: newId, type: 'New Card', number: '0000', expiry: '01/30', preferred: false, logo: 'https://via.placeholder.com/40x24.png?text=Card' };
+      paymentMethods.push(newMethod);
+      renderPayments();
+    });
+  
+    // Initial render
+    renderPayments();
+  </script>
+  
+</body></html>

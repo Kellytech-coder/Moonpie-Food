@@ -9,5 +9,21 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs"
+  "type": "commonjs",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kellytech-coder/Moonpie-Food.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Kellytech-coder/Moonpie-Food/issues"
+  },
+  "homepage": "https://github.com/Kellytech-coder/Moonpie-Food#readme",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.19.4"
+  }
 }

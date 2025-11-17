@@ -154,4 +154,50 @@
 </div>
 </main>
 </div>
+<script>
+  /* -----------------------------
+     BACK ARROW FUNCTION
+  ----------------------------- */
+  const backButton = document.querySelector("header button:first-child");
+  
+  if (backButton) {
+    backButton.addEventListener("click", () => {
+      window.history.back();
+    });
+  }
+  
+  /* -----------------------------
+     NOTIFICATION CLICK INTERACTION
+  ----------------------------- */
+  const notifications = document.querySelectorAll(".flex.cursor-pointer");
+  
+  notifications.forEach((item) => {
+    item.addEventListener("click", () => {
+      const title = item.querySelector("p.font-medium")?.textContent.trim();
+      console.log("Notification clicked:", title);
+    });
+  });
+  
+  /* -----------------------------
+     MARK ALL AS READ BUTTON
+  ----------------------------- */
+  const markAll = document.querySelector("header button:last-child");
+  
+  if (markAll) {
+    markAll.addEventListener("click", () => {
+      notifications.forEach((item) => {
+        // Remove unread background
+        item.classList.remove("bg-primary/10", "dark:bg-primary/20");
+  
+        // Remove unread indicator dot
+        const dot = item.querySelector(".size-2.5.bg-primary");
+        if (dot) dot.remove();
+      });
+  
+      console.log("All notifications marked as read");
+    });
+  }
+  </script>
+  
+  
 </body></html>
